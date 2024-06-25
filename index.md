@@ -74,7 +74,7 @@ For your first milestone, describe what your project is and how you plan to buil
 
 # Starter Project Schematics 
 
-![SchematicForStarter](StarterProj.png)
+![SchematicForStarter](StarterSchematics2.png)
 
 <!---# Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
