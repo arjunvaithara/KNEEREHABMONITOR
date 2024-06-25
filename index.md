@@ -57,19 +57,19 @@ For your first milestone, describe what your project is and how you plan to buil
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Xf_h2ZlMCag?si=Pgq-o5lSrfOtKBD6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<p></p>My starter project is a microcontroller-based Arduino project and it buzzes when I press a button and an LED goes off when it detects motion.  
-<p></p>There are 5 main components in this project, which are the Arduino itself, a button, a piezo buzzer, a green LED and a PIR motion sensor. The first input and output is the button and the piezo buzzer. The piezo buzzer works by applying voltage to a piezoelectric ceramic material. The voltage causes the material to deform and vibrate, making sound waves.
+<p></p>My starter project is a microcontroller-based Arduino project. It buzzes when I press a button and an LED goes off when it detects motion.  
+<p></p>There are 5 main components in this project. The parts consist of the Arduino itself, a button, a piezo buzzer, a green LED and a PIR motion sensor. The first input and output is the button and the piezo buzzer. The piezo buzzer works by applying voltage to a piezoelectric ceramic material. The voltage causes the material to deform and vibrate, making sound waves.
 
 ![PiezoBuzzerDiagram](1606313155-gsk-04-buzzer-understand.png)
-Arduino Sensor Kit
+Arduino Sensor Kit - The image shows how the buzzer vibrates to produce a tone
 
 <p></p>The button makes the piezo buzzer to buzz at a tone of about 50 hz by closing the circuit and allowing energy to flow to the buzzer. 
 <p></p>The second input and output are the PIR motion sensor and the led. A PIR sensor detects infrared radiation of humans. It does this by sensing a heat source’s movements, which cause a pulse which the PIR sensor sends as a signal. When the sensor detects the heat source moving, the Arduino reads it and tells the led to turn off. The Arduino itself has its own coding, but is a piece of hardware as well.
 
 ![PIRSensorDiagram](0118-pir_motion_sensor.jpg.png)
-Adafruit, Lady Ada
+Adafruit, Lady Ada - The image shows how the signal is generated. The heat sources passes through the detecting area and the PIR sensor registers that.
 
-<p></p>I had a few major challenges, with the biggest one being the difficulty of uploading my code to the Arduino. What was happening was the port would not show up on the Arduino software. Therefore I could not upload my fixed code. I tried many things to troubleshoot this issue. For example, I tried pressing the reset button, removing and reinstalling the software, and even testing the cable and the usb-c adapter, but the issue ended up being more simple. After rewiring the board, I got it working again.
+<p></p>I had a few major challenges, with the biggest one being the difficulty of uploading my code to the Arduino.The port would not show up on the Arduino software. Therefore I could not upload my fixed code. I tried many things to troubleshoot this issue. For example, I tried pressing the reset button, removing and reinstalling the software, and even testing the cable and the usb-c adapter, but the issue ended up being more simple. After rewiring the board, I got it working again.
 <p></p>Next, I will be working on my main project, the Knee Rehabilitation Monitor. The starter project gave me a good understanding of wiring, coding, and breadboards, so I am looking forward to my main project with this knowledge. The reason I chose my main project is because it looked like a helpful device for people with frequent knee injuries, like athletes or the elderly, and I think making someone like the knee rehab monitor will help me find and make other ways to help in the future.
 
 # Starter Project Schematics 
