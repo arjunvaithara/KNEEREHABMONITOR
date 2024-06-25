@@ -55,13 +55,19 @@ For your first milestone, describe what your project is and how you plan to buil
 
 # Starter Project
 ![HEADSHOT](Arjun_V.png)
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Xf_h2ZlMCag?si=hfLuiycGw-COBxIy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <p>My starter project is a microcontroller based arduino project and it buzzes when I press a button and an LED goes off when it detects motion.  
 <p></p>There are 5 main components in this project, which are the arduino itself, a button, a piezo buzzer, a green LED and a PIR motion sensor. The first input and output is the button and the piezo buzzer. The piezo buzzer works by applying voltage to a piezoelectric ceramic material. The voltage causes the material to deform and vibrate, making sound waves.
+
 ![PiezoBuzzerDiagram](1606313155-gsk-04-buzzer-understand.png)
+
 <p></p>The button makes the piezo buzzer to buzz at a tone of about 50 hz by closing the circuit and allowing energy to flow to the buzzer. 
 <p></p>The second input and output are the PIR motion sensor and the led. A PIR sensor detects infrared radiation of humans. It does this by sensing a heat source’s movements, which cause a pulse which the PIR sensor sends as a signal. When the sensor detects the heat source moving, the arduino reads it and tells the led to turn off. The arduino itself has its own coding, but is a piece of hardware as well.
+
 ![PIRSensorDiagram](0118-pir_motion_sensor.jpg.png)
+
 <p></p>I had a few major challenges, with the biggest one being the difficulty of uploading my code to the arduino. What was happening was the port would not show up on the arduino software. Therefore I could not upload my fixed code. I tried many things to troubleshoot this issue. For example, I tried pressing the reset button, removing and reinstalling the software, and even testing the cable and the usb-c adapter, but the issue ended up being more simple. After rewiring the board, I got it working again.
 <p></p>Next, I will be working on my main project, the Knee Rehabilitation Monitor. The starter project gave me a good understanding of wiring, coding, and breadboards, so I am looking forward to my main project with this knowledge. The reason I chose my main project is because it looked like a helpful device for people with frequent knee injuries, like athletes or the elderly, and I think making someone like the knee rehab monitor will help me find and make other ways to help in the future.
 
