@@ -64,7 +64,7 @@ For your first milestone, describe what your project is and how you plan to buil
 Arduino Sensor Kit - The image shows how the buzzer vibrates to produce a tone
 
 <p></p>The button makes the piezo buzzer to buzz at a tone of about 50 hz by closing the circuit and allowing energy to flow to the buzzer. 
-<p></p>The second input and output are the PIR motion sensor and the led. A PIR sensor detects infrared radiation of humans. It does this by sensing a heat source’s movements, which cause a pulse which the PIR sensor sends as a signal. When the sensor detects the heat source moving, the Arduino reads it and tells the led to turn off. The Arduino itself has its own coding, but is a piece of hardware as well.
+<p></p>The second input and output are the PIR motion sensor and the LED. A PIR sensor detects infrared radiation of humans. It does this by sensing a heat source’s movements, which cause a pulse which the PIR sensor sends as a signal. When the sensor detects the heat source moving, the Arduino reads it and tells the LED to turn off. The Arduino itself has its own coding, but is a piece of hardware as well.
 
 ![PIRSensorDiagram](0118-pir_motion_sensor.jpg.png)
 Adafruit, Lady Ada - The image shows how the signal is generated. The heat sources passes through the detecting area and the PIR sensor registers that.
