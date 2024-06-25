@@ -57,7 +57,7 @@ For your first milestone, describe what your project is and how you plan to buil
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Xf_h2ZlMCag?si=Pgq-o5lSrfOtKBD6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<p></p>My starter project is a microcontroller based Arduino project and it buzzes when I press a button and an LED goes off when it detects motion.  
+<p></p>My starter project is a microcontroller-based Arduino project and it buzzes when I press a button and an LED goes off when it detects motion.  
 <p></p>There are 5 main components in this project, which are the Arduino itself, a button, a piezo buzzer, a green LED and a PIR motion sensor. The first input and output is the button and the piezo buzzer. The piezo buzzer works by applying voltage to a piezoelectric ceramic material. The voltage causes the material to deform and vibrate, making sound waves.
 
 ![PiezoBuzzerDiagram](1606313155-gsk-04-buzzer-understand.png)
