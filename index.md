@@ -55,7 +55,7 @@ that called for a 47k resistor, and a 50k resistor was the closest round number 
  
 ![HowItWorksStraight](how-it-works-straight.png)
 ![HowItWorksBent](how-it-works-bent.png)
-<p></p><i>Figure 1; Spark Fun, Flex Sensor Hookup Guide - This graphic describes how a flex sensor has more resistance when it is bent.</i>
+<p></p><i>Figure 1; <a href="https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all">Spark Fun, Flex Sensor Hookup Guide</a> - This graphic describes how a flex sensor has more resistance when it is bent.</i>
 
 <p></p>This can be interpreted into the degrees the sensor is bending with some code. In the code, the flex sensor gives a value of 0 - 1023, then it is normalized. I calibrated the resistance for 0 degrees and 90 degrees, with STRAIGHT_RESISTANCE (0 degrees) being 13304.4 ohms and BEND_RESISTANCE (90 degrees) being 31319.56 using the map() function in the arduino IDE. The function extrapolates the degree value to a different bend. Also, the flex sensor also can only be plugged into analog instead of digital because it has multiple values. When the sensor bends past 110 degrees, the buzzer goes off, which is the most your knees should bend when squatting.
 
@@ -63,7 +63,7 @@ that called for a 47k resistor, and a 50k resistor was the closest round number 
 
 ![HowItWorksAccelerometer](Accelerometers-04-fullsize.png)
 
-<p></p>Figure 2; GlobalSpec, Specifying an Accelerometer: Function and Applications - This is how a accelerometer works.
+<p></p>Figure 2; <a href="[https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all](https://insights.globalspec.com/article/1263/specifying-an-accelerometer-function-and-applications)">GlobalSpec, Specifying an Accelerometer: Function and Applications</a> - This is how a accelerometer works.
 
 <p></p>Some challenges I had were that I had to learn about parallel resistors to solve my resistor issue. This concept took me two days to grasp, but once I learned it it made my understanding of the circuit much better. I also had to learn how to get data from an accelerometer. I had no idea how to code this, but I was able to find some code online which made adding to my code much easier.
 Up next is my second milestone. I plan on attaching the bluetooth module, so I can track the data from the accelerometer and flex sensor much easier.
