@@ -63,7 +63,7 @@ that called for a 47k resistor, and a 50k resistor was the closest round number 
 
 ![HowItWorksAccelerometer](Accelerometers-04-fullsize.png)
 
-<p></p>Figure 2; <a href="[https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all](https://insights.globalspec.com/article/1263/specifying-an-accelerometer-function-and-applications)">GlobalSpec, Specifying an Accelerometer: Function and Applications</a> - This is how a accelerometer works.
+<p></p>Figure 2; <a href="https://insights.globalspec.com/article/1263/specifying-an-accelerometer-function-and-applications">GlobalSpec, Specifying an Accelerometer: Function and Applications</a> -  This is how a accelerometer works.
 
 <p></p>Some challenges I had were that I had to learn about parallel resistors to solve my resistor issue. This concept took me two days to grasp, but once I learned it it made my understanding of the circuit much better. I also had to learn how to get data from an accelerometer. I had no idea how to code this, but I was able to find some code online which made adding to my code much easier.
 Up next is my second milestone. I plan on attaching the bluetooth module, so I can track the data from the accelerometer and flex sensor much easier.
@@ -96,19 +96,86 @@ Up next is my second milestone. I plan on attaching the bluetooth module, so I c
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
 # Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```c++
-void setup() {
-  // put your setup code here, to run once:
+#include <MPU6050.h>
+#include <Wire.h>
+#include <I2Cdev.h>
+
+MPU6050 mpu;
+int16_t ax, ay, az;
+int16_t gx, gy, gz;
+
+struct MyData {
+  byte X;
+  byte Y;
+  byte Z;
+};
+
+MyData data;
+
+
+const int FLEX_PIN = A0; // Pin connected to voltage divider output
+const int buzzerPin = 2;
+// Measure the voltage at 5V and the actual resistance of your
+// 47k resistor, and enter them below:
+const float VCC = 4.98; // Measured voltage of Ardunio 5V line
+const float R_DIV = 50000.0; // Measured resistance of 3.3k resistor
+
+// Upload the code, then try to adjust these values to more
+// accurately calculate bend degree.
+const float STRAIGHT_RESISTANCE = 13304.4; // resistance when straight
+const float BEND_RESISTANCE = 31319.56; // resistance at 90 deg
+
+void setup() 
+{
   Serial.begin(9600);
-  Serial.println("Hello World!");
+  pinMode(FLEX_PIN, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+
+  Serial.begin(9600);
+  Wire.begin();
+  mpu.initialize();
+  //pinMode(LED_BUILTIN, OUTPUT);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop() 
+{
+  // Read the ADC, and calculate voltage and resistance from it
+  int flexADC = analogRead(FLEX_PIN);
+  float flexV = flexADC * VCC / 1023.0;
+  float flexR = R_DIV * (VCC / flexV - 1.0);
+  Serial.println("Resistance: " + String(flexR) + " ohms");
 
+  // Use the calculated resistance to estimate the sensor's
+  // bend angle:
+  float angle = map(flexR, STRAIGHT_RESISTANCE, BEND_RESISTANCE,
+                   0, 90.0);
+  Serial.println("Bend: " + String(angle) + " degrees");
+  Serial.println();
+
+  delay(500);
+
+  if (angle >= 110) {
+  tone(buzzerPin,50);
+  } else {
+    noTone(buzzerPin);
+  }
+  mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+  data.X = map(ax, -17000, 17000, 0, 255 ); // X axis data
+  data.Y = map(ay, -17000, 17000, 0, 255); 
+  data.Z = map(az, -17000, 17000, 0, 255);  // Y axis data
+  delay(500);
+  Serial.print("Axis X = ");
+  Serial.print(data.X);
+  Serial.print("  ");
+  Serial.print("Axis Y = ");
+  Serial.print(data.Y);
+  Serial.print("  ");
+  Serial.print("Axis Z  = ");
+  Serial.println(data.Z);
 }
+
 ```
 
 <!---# Bill of Materials
@@ -123,6 +190,6 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 # Other Resources/Examples
 <!---One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components. -->
-- [Example 1](https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all)
-- [Example 2](https://www.youtube.com/watch?v=a37xWuNJsQI)
-- [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
+- [Flex Sensor Hookup Guide](https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all)
+- [MPU6050 Sensor Arduino Tutorial](https://www.youtube.com/watch?v=a37xWuNJsQI)
+- [Specifying an Accelerometer: Function and Applications](https://insights.globalspec.com/article/1263/specifying-an-accelerometer-function-and-applications)
