@@ -8,7 +8,7 @@ You should comment out all portions of your portfolio that you have not complete
 <!--- Anything between these symbols will not render on the published site -->
 
 
-| **Engineer** | **School** | **Area of Interest** | **Grade** |
+<p>| **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Arjun V | Las Lomas High School | Mechanical Engineering | Incoming Junior
 
