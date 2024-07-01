@@ -51,11 +51,16 @@ For your second milestone, explain what you've worked on since your previous mil
 <p></p>My first milestone was to detect position using a flex sensor and accelerometer. My first step was to create a circuit with a flex sensor and two resistors. First, I looked at a 
 <a href="https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all">schematic</a>
 that called for a 47k resistor, and a 50k resistor was the closest round number to 47k. As there were no 50k resistors, I learned about resistors wired in parallel to fix this issue. Since the current has more ways to flow through the circuit, there is less resistance overall. Due to this, I ended up putting two 100k resistors in parallel to each other to fix this, because when you put the two resistors in the parallel resistor formula (1/Rt = 1/R1 + 1/R2), the total resistance of the two ends up being 50k. 
-<p></p>After resolving my resistor issue, I had to learn how flex sensors work. I learned that the flex sensor has ink that has conductive particles in it, and the more the sensor bends the more resistance is measured.
+<p></p>After resolving my resistor issue, I had to learn how flex sensors work. I learned that the flex sensor has ink that has conductive particles in it, and the more the sensor bends the more resistance is measured across it.
  
 ![HowItWorksStraight](how-it-works-straight.png)
 ![HowItWorksBent](how-it-works-bent.png)
 <p></p><i>Figure 1; <a href="https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all">Spark Fun, Flex Sensor Hookup Guide</a> - This graphic describes how a flex sensor has more resistance when it is bent.</i>
+
+<p></p>The flex sensor is essentially a variable resistor. When we put it in a voltage divider circuit, we can use the resistance that the flex sensor gives, put the resistance into ohms law and find the voltage of it, which is something the Arduino can actually read. For example, if we take the formula Vo=Vin(R2/R1+R2), and say the flex sensor is R2, if the resistance of it increases so does the Vo (Voltage Out). Therefore, if the flex sensor bends more and the resistance increases, so does the voltage out which the arduino reads.
+
+![VoltageDivider](itemeditorimage_6368822ab7fb6.png)
+<i><p>Figure 3; < href="https://resources.pcb.cadence.com/blog/voltage-dividers-operations-and-functions">Voltage Dividers: Operations and Functions</a> - This is a voltage divider circuit. For my project, Z2 would be the Flex sensor and Z1 would be the parallel resistors I talked about earlier.</i>
 
 <p></p>This can be interpreted into the degrees the sensor is bending with some code. In the code, the flex sensor gives a value of 0 - 1023, then it is normalized. I calibrated the resistance for 0 degrees and 90 degrees, with STRAIGHT_RESISTANCE (0 degrees) being 13304.4 ohms and BEND_RESISTANCE (90 degrees) being 31319.56 using the map() function in the arduino IDE. The function extrapolates the degree value to a different bend. Also, the flex sensor also can only be plugged into analog instead of digital because it has multiple values. When the sensor bends past 110 degrees, the buzzer goes off, which is the most your knees should bend when squatting.
 
@@ -93,7 +98,7 @@ Up next is my second milestone. I plan on attaching the bluetooth module, so I c
 ![SchematicForStarter](StarterSchematics2.png)
 
 # Schematics 
-<i>Figure 3</i>; Milestone 1 Schematic - 
+<i>Figure 4</i>; Milestone 1 Schematic - 
 ![Milestone1Schematic](MainProjM1.png)
 
 # Code
