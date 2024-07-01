@@ -93,7 +93,7 @@ Up next is my second milestone. I plan on attaching the bluetooth module, so I c
 ![SchematicForStarter](StarterSchematics2.png)
 
 # Schematics 
-Milestone 1 Schematic - 
+<i>Figure 3</i>; Milestone 1 Schematic - 
 ![Milestone1Schematic](MainProjM1.png)
 
 # Code
