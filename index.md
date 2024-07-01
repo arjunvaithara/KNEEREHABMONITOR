@@ -59,7 +59,7 @@ that called for a 47k resistor, and a 50k resistor was the closest round number 
 
 <p></p>The flex sensor is essentially a variable resistor. The problem is that an Arduino reads voltage. We can fix that by putting the flex sensor in a voltage divider circuit,then use the resistance that the flex sensor gives, use Ohm's law and find the voltage of it, which is something the Arduino can actually read. For example, if we take the formula V<sub>out</sub>=V<sub>in</sub>(R<sub>2</sub>(<sup>R<sub>2</sub></sup>&frasl;<sub>R<sub>1</sub>+<sub>R</sub><sub>2</sub></sub></sub>)), and say the flex sensor is R<sub>2</sub>, if the resistance of it increases so does the V<sub>out</sub>. Therefore, if the flex sensor bends more and the resistance increases, so does the voltage out which the arduino reads.
 
-<img src="itemeditorimage_6368822ab7fb6.png" width="300" height="500">
+<img src="itemeditorimage_6368822ab7fb6.png" width="300" height="300">
 
 <i><p>Figure 3; <a href="https://resources.pcb.cadence.com/blog/voltage-dividers-operations-and-functions">Voltage Dividers: Operations and Functions</a> - This is a voltage divider circuit. For my project, Z2 would be the Flex sensor and Z1 would be the parallel resistors I talked about earlier.</i>
 
