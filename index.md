@@ -46,6 +46,8 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 <p>After pairing to one module, mine began to blink which indicated it was paired. After that I named the module “arjun HC05” in the device settings of my Mac. Now, the data would print on the serial monitor.
 
+![HC05](HC-05-Bluetooth-Module-Pinout.png)
+
 <p><i>Figure 5; <a href="https://components101.com/wireless/hc-05-bluetooth-module">Components 101, HC-05 - Bluetooth Module</a> -  This image shows where the wires go on the HC05</i>
 
 <p>After I attached the bluetooth module, all my components were attached and working. This meant I could solder everything so it was permanently connected. I got a new proto board, and began adding the components and soldering it from underneath it. The proto-board helped reduce the overall size of the project, making it more functional. Aside from a few minor mistakes, I got all the wires and components soldered onto the proto board, and now I just needed to test if everything still worked. The type of wire I chose to use for this was solid-core wire, and I made this choice because it would be easier to solder onto the proto board, and the higher degree of flexibility stranded-core wire offered was not required. One thing I learned to do while wiring was labeling my wire. This would save a lot of time in the future over confusion over which wire goes where.
@@ -54,7 +56,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 <p>After this, I attached everything to the knee sleeve. This part was simple, but tedious. I learned how to sew, and then I attached the parts one by one. First, I attached the proto board with all the wires on it, and I sewed the arduino next to it. After those two, I sewed the bluetooth module and accelerometer in place so they would not move around anymore.
 
-![SewingHoles](Untitleddesign.png)
+![SewingHoles](Untitled design.png)
 
 ![SewingHoles](image0.png)
 
