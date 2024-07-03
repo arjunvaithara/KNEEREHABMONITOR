@@ -55,10 +55,10 @@ For your final milestone, explain the outcome of your project. Key details to in
 <p>When soldering, I accidentally put a wire connected to the piezo buzzer that was supposed to be connected to digital port 2 to the 5v area. This caused the buzzer to constantly be on at a really high pitch whenever it was connected to power. However, this was a simple fix. I simply had to melt the solder that was on that wire and remove it with the solder sucker, and put it into the right port. Then, everything worked fine.
 
 <p>After this, I attached everything to the knee sleeve. This part was simple, but tedious. I learned how to sew, and then I attached the parts one by one. First, I attached the proto board with all the wires on it, and I sewed the arduino next to it. After those two, I sewed the bluetooth module and accelerometer in place so they would not move around anymore.
+  
+![SewingHolesArduino](sewing.png)
 
-![SewingHoles](Untitled design.png)
-
-![SewingHoles](image0.png)
+![SewingHolesProto](image0.png)
 
 <p>Figure 6; The circled holes are where I sewed the arduino down
 
