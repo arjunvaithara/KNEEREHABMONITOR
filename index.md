@@ -28,21 +28,42 @@ For your final milestone, explain the outcome of your project. Key details to in
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
 - A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
+- What you hope to learn in the future after everything you've learned at BSE-->
 
 
 
 # Second Milestone
 
-<!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<iframe width="745" height="419" src="https://www.youtube.com/embed/CIAtUQvTl04" title="Arjun V.  Second Milestone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<p>My second milestone was to add bluetooth to my Arduino, so it could display data on the serial monitor without having to be connected, adding a powerbank to power the whole thing, and then soldering it and attaching it to my knee sleeve. 
 
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
-- Technical details of what you've accomplished and how they contribute to the final goal
-- What has been surprising about the project so far
-- Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone-->
+<p>My first step was to attach bluetooth to my Arduino. I wired it to the breadboard and Arduino, and connected it to my computer. I wired VCC to 5v, Ground to GND, TX to RX and RX to TX on the Arduino. TX means transmitter, and RX means receiver, so when wiring, the receiver of the one device goes to the other device’s transmitter. If you connected TX to TX, then there would be no way to receive the transmitted data. How the module itself works is by connecting to another device by emitting low-energy radio waves. The reason for adding this to the project was so I could see the flex sensor and accelerometer data without having to use a wired connection, making the project overall more useful.
+
+<p>At this point, I also had to add the power bank so the whole project could be powered without being connected to my computer. The power bank I used was the Anker PowerCore. It has more than enough capacity (5000 mAh) so it can power the device for 100 hours. This way I could connect my bluetooth to see if the data would print without a wired connection.
+
+<p>One of my challenges was that I wasn’t able to connect to my computer with the HC05. In the room, many people used the same bluetooth module, so the first obstacle was even connecting to the module that was mine. For half the day, I connected to all the modules, have none of them connect to my computer, then have to forget all of them and re-pair all of them again.
+
+<p>After pairing to one module, mine began to blink which indicated it was paired. After that I named the module “arjun HC05” in the device settings of my Mac. Now, the data would print on the serial monitor.
+
+<p><i>Figure 5; <a href="https://components101.com/wireless/hc-05-bluetooth-module">Components 101, HC-05 - Bluetooth Module</a> -  This image shows where the wires go on the HC05</i>
+
+<p>After I attached the bluetooth module, all my components were attached and working. This meant I could solder everything so it was permanently connected. I got a new proto board, and began adding the components and soldering it from underneath it. The proto-board helped reduce the overall size of the project, making it more functional. Aside from a few minor mistakes, I got all the wires and components soldered onto the proto board, and now I just needed to test if everything still worked. The type of wire I chose to use for this was solid-core wire, and I made this choice because it would be easier to solder onto the proto board, and the higher degree of flexibility stranded-core wire offered was not required. One thing I learned to do while wiring was labeling my wire. This would save a lot of time in the future over confusion over which wire goes where.
+
+<p>When soldering, I accidentally put a wire connected to the piezo buzzer that was supposed to be connected to digital port 2 to the 5v area. This caused the buzzer to constantly be on at a really high pitch whenever it was connected to power. However, this was a simple fix. I simply had to melt the solder that was on that wire and remove it with the solder sucker, and put it into the right port. Then, everything worked fine.
+
+<p>After this, I attached everything to the knee sleeve. This part was simple, but tedious. I learned how to sew, and then I attached the parts one by one. First, I attached the proto board with all the wires on it, and I sewed the arduino next to it. After those two, I sewed the bluetooth module and accelerometer in place so they would not move around anymore.
+
+![SewingHoles](Untitleddesign.png)
+
+![SewingHoles](image0.png)
+
+<p>Figure 6; The circled holes are where I sewed the arduino down
+
+<p>Then, the problem of how I would attach the flex sensor to the knee sleeve. The problem was that the knee sleeve stretched a lot when it was worn, so if I just put the flex sensor on the sleeve there was a risk of it breaking while the knee sleeve wanted to stretch. To combat this risk, I utilized a strip of neoprene fabric and put it over the sensor, sort of forming a tube for the sensor to fit in. This solved my issue because it let the flex sensor slide around as much as it wanted to, but it also held it down tight enough so I could measure its bend.
+
+<p>Next, I will finish Milestone 3, in which I will make it so that the Arduino will be able to make the buzzer buzz when the accelerometer detects bad squat form. For example, if your knees bend inward, the accelerometer could read that position and tell the Arduino to make the buzzer buzz. I am looking forward to this because when I had a leg injury, something that told me when my knee was bent inward would have been very helpful.
+
 
 # First Milestone
 
