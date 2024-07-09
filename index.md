@@ -48,33 +48,33 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 ![HC05](HC-05-Bluetooth-Module-Pinout.png)
 
-<p><i>Figure 5; <a href="https://components101.com/wireless/hc-05-bluetooth-module">Components 101, HC-05 - Bluetooth Module</a> -  This image shows where the wires go on the HC05</i>
+<p><i>Figure 5; <a href="https://components101.com/wireless/hc-05-bluetooth-module">Components 101, HC-05 - Bluetooth Module</a> -  This image shows where the wires go on the HC05</i></p>
 
-<p>After I attached the bluetooth module, all my components were attached and working. This meant I could solder everything so it was permanently connected. I got a new proto board, and began adding the components and soldering it from underneath it. The proto-board helped reduce the overall size of the project, making it more functional. Aside from a few minor mistakes, I got all the wires and components soldered onto the proto board, and now I just needed to test if everything still worked. The type of wire I chose to use for this was solid-core wire, and I made this choice because it would be easier to solder onto the proto board, and the higher degree of flexibility stranded-core wire offered was not required. One thing I learned to do while wiring was labeling my wire. This would save a lot of time in the future over confusion over which wire goes where.
+<p>After I attached the bluetooth module, all my components were attached and working. This meant I could solder everything so it was permanently connected. I got a new proto board, and began adding the components and soldering it from underneath it. The proto-board helped reduce the overall size of the project, making it more functional. Aside from a few minor mistakes, I got all the wires and components soldered onto the proto board, and now I just needed to test if everything still worked. The type of wire I chose to use for this was solid-core wire, and I made this choice because it would be easier to solder onto the proto board, and the higher degree of flexibility stranded-core wire offered was not required. One thing I learned to do while wiring was labeling my wire. This would save a lot of time in the future over confusion over which wire goes where.</p>
 
-<p>When soldering, I accidentally put a wire connected to the piezo buzzer that was supposed to be connected to digital port 2 to the 5v area. This caused the buzzer to constantly be on at a really high pitch whenever it was connected to power. However, this was a simple fix. I simply had to melt the solder that was on that wire and remove it with the solder sucker, and put it into the right port. Then, everything worked fine.
+<p>When soldering, I accidentally put a wire connected to the piezo buzzer that was supposed to be connected to digital port 2 to the 5v area. This caused the buzzer to constantly be on at a really high pitch whenever it was connected to power. However, this was a simple fix. I simply had to melt the solder that was on that wire and remove it with the solder sucker, and put it into the right port. Then, everything worked fine.</p>
 
-<p>After this, I attached everything to the knee sleeve. This part was simple, but tedious. I learned how to sew, and then I attached the parts one by one. First, I attached the proto board with all the wires on it, and I sewed the arduino next to it. After those two, I sewed the bluetooth module and accelerometer in place so they would not move around anymore.
+<p>After this, I attached everything to the knee sleeve. This part was simple, but tedious. I learned how to sew, and then I attached the parts one by one. First, I attached the proto board with all the wires on it, and I sewed the arduino next to it. After those two, I sewed the bluetooth module and accelerometer in place so they would not move around anymore.</p>
   
 ![SewingHolesArduino](sewing.png)
 
 ![SewingHolesProto](image0.png)
 
-<p>Figure 6; The circled holes are where I sewed the arduino down
+<p>Figure 6; The circled holes are where I sewed the arduino down</p>
 
-<p>Then, the problem of how I would attach the flex sensor to the knee sleeve. The problem was that the knee sleeve stretched a lot when it was worn, so if I just put the flex sensor on the sleeve there was a risk of it breaking while the knee sleeve wanted to stretch. To combat this risk, I utilized a strip of neoprene fabric and put it over the sensor, sort of forming a tube for the sensor to fit in. This solved my issue because it let the flex sensor slide around as much as it wanted to, but it also held it down tight enough so I could measure its bend.
+<p>Then, the problem of how I would attach the flex sensor to the knee sleeve. The problem was that the knee sleeve stretched a lot when it was worn, so if I just put the flex sensor on the sleeve there was a risk of it breaking while the knee sleeve wanted to stretch. To combat this risk, I utilized a strip of neoprene fabric and put it over the sensor, sort of forming a tube for the sensor to fit in. This solved my issue because it let the flex sensor slide around as much as it wanted to, but it also held it down tight enough so I could measure its bend.</p>
 
-<p>Next, I will finish Milestone 3, in which I will make it so that the Arduino will be able to make the buzzer buzz when the accelerometer detects bad squat form. For example, if your knees bend inward, the accelerometer could read that position and tell the Arduino to make the buzzer buzz. I am looking forward to this because when I had a leg injury, something that told me when my knee was bent inward would have been very helpful.
+<p>Next, I will finish Milestone 3, in which I will make it so that the Arduino will be able to make the buzzer buzz when the accelerometer detects bad squat form. For example, if your knees bend inward, the accelerometer could read that position and tell the Arduino to make the buzzer buzz. I am looking forward to this because when I had a leg injury, something that told me when my knee was bent inward would have been very helpful.</p>
 
 
 # First Milestone
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Q6NsCcsk8Xg?si=JDRZV4ocUAxqacnu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<p></p>My first milestone was to detect position using a flex sensor and accelerometer. My first step was to create a circuit with a flex sensor and two resistors. First, I looked at a 
+<p>My first milestone was to detect position using a flex sensor and accelerometer. My first step was to create a circuit with a flex sensor and two resistors. First, I looked at a 
 <a href="https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all">schematic</a>
-that called for a 47k resistor, and a 50k resistor was the closest round number to 47k. As there were no 50k resistors, I learned about resistors wired in parallel to fix this issue. Since the current has more ways to flow through the circuit, there is less resistance overall. Due to this, I ended up putting two 100k resistors in parallel to each other to fix this, because when you put the two resistors in the parallel resistor formula (1/Rt = 1/R1 + 1/R2), the total resistance of the two ends up being 50k. 
-<p></p>After resolving my resistor issue, I had to learn how flex sensors work. I learned that the flex sensor has ink that has conductive particles in it, and the more the sensor bends the more resistance is measured across it.
+that called for a 47k resistor, and a 50k resistor was the closest round number to 47k. As there were no 50k resistors, I learned about resistors wired in parallel to fix this issue. Since the current has more ways to flow through the circuit, there is less resistance overall. Due to this, I ended up putting two 100k resistors in parallel to each other to fix this, because when you put the two resistors in the parallel resistor formula (1/Rt = 1/R1 + 1/R2), the total resistance of the two ends up being 50k.</p>
+<p>After resolving my resistor issue, I had to learn how flex sensors work. I learned that the flex sensor has ink that has conductive particles in it, and the more the sensor bends the more resistance is measured across it.</p>
  
 ![HowItWorksStraight](how-it-works-straight.png)
 ![HowItWorksBent](how-it-works-bent.png)
