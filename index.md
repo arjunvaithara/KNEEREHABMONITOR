@@ -18,7 +18,7 @@ You should comment out all portions of your portfolio that you have not complete
 
 <img src="Arjun_V.png" width="305" height="400">
   
-# Final Milestone
+# Third Milestone
 
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**-->
 
