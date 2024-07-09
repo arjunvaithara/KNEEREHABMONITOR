@@ -35,14 +35,16 @@ You should comment out all portions of your portfolio that you have not complete
 <p>When reviewing the data, I noticed that the patterns of the good squat form and the bad squat form on the serial plotter looked almost the same, and it would be very difficult to tell the difference. </p>
 <p>After seeing this, I realized that the accelerometer I was using, the MPU6050, was not good. Its data was very inaccurate with lots of noise and spikes, and it also collected data and reacted very slowly. I decided to replace it with a new accelerometer, the LSM6DS3 + LIS3MDL from Adafruit.</p>
 
-![MPU6050](MPU6050.png)
-![LSM6DS3+LIS3MDL](LSM6DS3.png)
+<img src="MPU6050.png" width="232" height="301">
+
+<img src="LSM6DS3.png" width="323" height="262">
+
 <p><i>Figure 8; <a href="https://www.amazon.com/Axis-Accelerometer-Gyroscope-Sensor-Quadcopter/dp/B06XDBFDM5">MPU6050 Module 3 Axis Accelerometer Gyroscope GY-521 Analog Gyro Sensors Breakout Board for Quadcopter Arduino Robotics Raspberry Pi Boards</a> and <a href="https://learn.adafruit.com/adafruit-lsm6ds3tr-c-lis3mdl-precision-9-dof-imu/overview">Adafruit LSM6DS3TR-C + LIS3MDL - Precision 9 DoF IMU</a>- This is a side by side comparison of the two accelerometers</i></p>
 
 <p>I found some code for the new accelerometer, and copied that, and then I coded it so that the buzzer would produce a tone when my knee bent in. </p>
 <p>The new accelerometer still had some noise and spikes in the data, so to fix this I learned about sampling the data.</p> 
 
-![AccelerometerNoise](serialplotterdata.png)
+<img src="serialplotterdata.png" width="344" height="269">
 <p><i>Figure 9; Arduino Serial Plotter - This is an example of noise in the accelerometer.</i></p>
 
 <p>Sampling is when you take a piece of data at evenly spaced intervals to see something about the total data. In my case, I used the samples to get an average of the data in the Y-axis every second, and then I coded it so that if the average is less than the threshold, (which is the point where my knees bend in), the buzzer goes off.</p>
