@@ -157,6 +157,9 @@ Up next is my second milestone. I plan on attaching the bluetooth module, so I c
 <i>Figure 7</i>; Milestone 2 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) -
 ![Milestone2Schematic](milestone2.png)
 
+<i>Figure 14</i>; Milestone 3 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) -
+![Milestone3Schematic](mainproj3.png)
+
 # Code
 ```c++
 // Basic demo for accelerometer/gyro readings from Adafruit LSM6DS3TR-C
