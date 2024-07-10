@@ -1,5 +1,9 @@
 # Knee Rehab Monitor
 
+![FinalProjectPicture](Finalprojlabeled.png)
+<p><i>Figure 11; Final Project - This is is a picture of my final project with the main componenets labeled</i></p
+![CodeFlowChart](CodeFlowChart.png)
+<p><i>Figure 12; Flowchart of My Code - This is flowchart goes through how my code works step by step</i></p>
 <!---
 Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!
 
@@ -59,9 +63,6 @@ You should comment out all portions of your portfolio that you have not complete
 <p>I coded the Arduino to take samples and make an average of the Y-axis data, but the new code made it so that the data would not print on the serial monitor. To solve the issue, I increased the baud rate and the data started printing again. The issue was that the bluetooth module could only communicate with the baud rate of 9600, which was much lower than what I previously increased it to. </p>
 <p>To fix this issue, I had to change the delay of the void loop in the code, and I also increased the number of samples taken per second and the data started to print again at a baud rate of 9600. </p>
 <p>After this, I can connect to bluetooth and still print data, and my buzzer will only go off if I squat too deep, (because of the flex sensor), or if my knees bend inward, (accelerometer). This meant that my main project was complete!</p>
-
-![CodeFlowChart](CodeFlowChart.png)
-<p><i>Figure 11; Flowchart of My Code - This is flowchart goes through how my code works step by step</i></p>
 
 <p>Next, I will be working on my modifications. I am planning on doing an exoskeleton modification, which will help the strength of the user of the knee sleeve. It will be mainly hardware based. </p>
 
@@ -139,22 +140,18 @@ Up next is my second milestone. I plan on attaching the bluetooth module, so I c
 
 # Code
 ```c++
-#include <MPU6050.h>
-#include <Wire.h>
-#include <I2Cdev.h>
+// Basic demo for accelerometer/gyro readings from Adafruit LSM6DS3TR-C
 
-MPU6050 mpu;
-int16_t ax, ay, az;
-int16_t gx, gy, gz;
+#include <Adafruit_LSM6DS3TRC.h>
 
-struct MyData {
-  byte X;
-  byte Y;
-  byte Z;
-};
+// For SPI mode, we need a CS pin
+#define LSM_CS 10
+// For software-SPI mode we need SCK/MOSI/MISO pins
+#define LSM_SCK 13
+#define LSM_MISO 12
+#define LSM_MOSI 11
 
-MyData data;
-
+Adafruit_LSM6DS3TRC lsm6ds3trc;
 
 const int FLEX_PIN = A0; // Pin connected to voltage divider output
 const int buzzerPin = 2;
@@ -165,24 +162,167 @@ const float R_DIV = 50000.0; // Measured resistance of 3.3k resistor
 
 // Upload the code, then try to adjust these values to more
 // accurately calculate bend degree.
-const float STRAIGHT_RESISTANCE = 13304.4; // resistance when straight
-const float BEND_RESISTANCE = 31319.56; // resistance at 90 deg
+const float STRAIGHT_RESISTANCE = 10604.27; // resistance when straight
+const float BEND_RESISTANCE = 13875.84; // resistance at 90 deg
 
-void setup() 
-{
-  Serial.begin(9600);
+const float ACCEL_THRESHOLD = 3.8; // Threshold for accelerometer (in m/s^2)
+
+const int NUM_SAMPLES = 6; // Number of samples for moving average
+float accelYBuffer[NUM_SAMPLES];
+int sampleIndex = 0;
+int beginTime = 0;
+int TimeTook = 0;
+
+void setup(void) {
+
+Serial.begin(9600);
   pinMode(FLEX_PIN, INPUT);
   pinMode(buzzerPin, OUTPUT);
 
   Serial.begin(9600);
-  Wire.begin();
-  mpu.initialize();
-  //pinMode(LED_BUILTIN, OUTPUT);
-}
+  while (!Serial)
+    delay(10); // will pause Zero, Leonardo, etc until serial console opens
 
-void loop() 
-{
-  // Read the ADC, and calculate voltage and resistance from it
+  Serial.println("Adafruit LSM6DS3TR-C test!");
+
+  if (!lsm6ds3trc.begin_I2C()) {
+    // if (!lsm6ds3trc.begin_SPI(LSM_CS)) {
+    // if (!lsm6ds3trc.begin_SPI(LSM_CS, LSM_SCK, LSM_MISO, LSM_MOSI)) {
+    Serial.println("Failed to find LSM6DS3TR-C chip");
+    while (1) {
+      delay(10);
+    }
+  }
+
+  Serial.println("LSM6DS3TR-C Found!");
+
+  // lsm6ds3trc.setAccelRange(LSM6DS_ACCEL_RANGE_2_G);
+  Serial.print("Accelerometer range set to: ");
+  switch (lsm6ds3trc.getAccelRange()) {
+  case LSM6DS_ACCEL_RANGE_2_G:
+    Serial.println("+-2G");
+    break;
+  case LSM6DS_ACCEL_RANGE_4_G:
+    Serial.println("+-4G");
+    break;
+  case LSM6DS_ACCEL_RANGE_8_G:
+    Serial.println("+-8G");
+    break;
+  case LSM6DS_ACCEL_RANGE_16_G:
+    Serial.println("+-16G");
+    break;
+  }
+
+  // lsm6ds3trc.setGyroRange(LSM6DS_GYRO_RANGE_250_DPS);
+  Serial.print("Gyro range set to: ");
+  switch (lsm6ds3trc.getGyroRange()) {
+  case LSM6DS_GYRO_RANGE_125_DPS:
+    Serial.println("125 degrees/s");
+    break;
+  case LSM6DS_GYRO_RANGE_250_DPS:
+    Serial.println("250 degrees/s");
+    break;
+  case LSM6DS_GYRO_RANGE_500_DPS:
+    Serial.println("500 degrees/s");
+    break;
+  case LSM6DS_GYRO_RANGE_1000_DPS:
+    Serial.println("1000 degrees/s");
+    break;
+  case LSM6DS_GYRO_RANGE_2000_DPS:
+    Serial.println("2000 degrees/s");
+    break;
+  case ISM330DHCX_GYRO_RANGE_4000_DPS:
+    break; // unsupported range for the DS33
+  }
+
+  // lsm6ds3trc.setAccelDataRate(LSM6DS_RATE_12_5_HZ);
+  Serial.print("Accelerometer data rate set to: ");
+  switch (lsm6ds3trc.getAccelDataRate()) {
+  case LSM6DS_RATE_SHUTDOWN:
+    Serial.println("0 Hz");
+    break;
+  case LSM6DS_RATE_12_5_HZ:
+    Serial.println("12.5 Hz");
+    break;
+  case LSM6DS_RATE_26_HZ:
+    Serial.println("26 Hz");
+    break;
+  case LSM6DS_RATE_52_HZ:
+    Serial.println("52 Hz");
+    break;
+  case LSM6DS_RATE_104_HZ:
+    Serial.println("104 Hz");
+    break;
+  case LSM6DS_RATE_208_HZ:
+    Serial.println("208 Hz");
+    break;
+  case LSM6DS_RATE_416_HZ:
+    Serial.println("416 Hz");
+    break;
+  case LSM6DS_RATE_833_HZ:
+    Serial.println("833 Hz");
+    break;
+  case LSM6DS_RATE_1_66K_HZ:
+    Serial.println("1.66 KHz");
+    break;
+  case LSM6DS_RATE_3_33K_HZ:
+    Serial.println("3.33 KHz");
+    break;
+  case LSM6DS_RATE_6_66K_HZ:
+    Serial.println("6.66 KHz");
+    break;
+  }
+
+  // lsm6ds3trc.setGyroDataRate(LSM6DS_RATE_12_5_HZ);
+  Serial.print("Gyro data rate set to: ");
+  switch (lsm6ds3trc.getGyroDataRate()) {
+  case LSM6DS_RATE_SHUTDOWN:
+    Serial.println("0 Hz");
+    break;
+  case LSM6DS_RATE_12_5_HZ:
+    Serial.println("12.5 Hz");
+    break;
+  case LSM6DS_RATE_26_HZ:
+    Serial.println("26 Hz");
+    break;
+  case LSM6DS_RATE_52_HZ:
+    Serial.println("52 Hz");
+    break;
+  case LSM6DS_RATE_104_HZ:
+    Serial.println("104 Hz");
+    break;
+  case LSM6DS_RATE_208_HZ:
+    Serial.println("208 Hz");
+    break;
+  case LSM6DS_RATE_416_HZ:
+    Serial.println("416 Hz");
+    break;
+  case LSM6DS_RATE_833_HZ:
+    Serial.println("833 Hz");
+    break;
+  case LSM6DS_RATE_1_66K_HZ:
+    Serial.println("1.66 KHz");
+    break;
+  case LSM6DS_RATE_3_33K_HZ:
+    Serial.println("3.33 KHz");
+    break;
+  case LSM6DS_RATE_6_66K_HZ:
+    Serial.println("6.66 KHz");
+    break;
+  }
+
+  lsm6ds3trc.configInt1(false, false, true); // accelerometer DRDY on INT1
+  lsm6ds3trc.configInt2(false, true, false); // gyro DRDY on INT2
+
+ for (int i = 0; i < NUM_SAMPLES; i++) {
+    accelYBuffer[i] = 0;
+  }
+}
+void loop() {
+
+  beginTime = millis(); //used for finding how long code takes to run
+
+ // Read the ADC, and calculate voltage and resistance from it
   int flexADC = analogRead(FLEX_PIN);
   float flexV = flexADC * VCC / 1023.0;
   float flexR = R_DIV * (VCC / flexV - 1.0);
@@ -195,26 +335,76 @@ void loop()
   Serial.println("Bend: " + String(angle) + " degrees");
   Serial.println();
 
-  delay(500);
+  //delay(500);
 
   if (angle >= 110) {
   tone(buzzerPin,50);
   } else {
     noTone(buzzerPin);
   }
-  mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-  data.X = map(ax, -17000, 17000, 0, 255 ); // X axis data
-  data.Y = map(ay, -17000, 17000, 0, 255); 
-  data.Z = map(az, -17000, 17000, 0, 255);  // Y axis data
-  delay(500);
-  Serial.print("Axis X = ");
-  Serial.print(data.X);
-  Serial.print("  ");
-  Serial.print("Axis Y = ");
-  Serial.print(data.Y);
-  Serial.print("  ");
-  Serial.print("Axis Z  = ");
-  Serial.println(data.Z);
+
+
+  // Get a new normalized sensor event
+  sensors_event_t accel;
+  sensors_event_t gyro;
+  sensors_event_t temp;
+  lsm6ds3trc.getEvent(&accel, &gyro, &temp);
+
+  /* Display the results (acceleration is measured in m/s^2) */
+  Serial.print("\t\tAccel X: ");
+  Serial.print(accel.acceleration.x);
+  Serial.print(" \tY: ");
+  Serial.print(accel.acceleration.y);
+  Serial.print(" \tZ: ");
+  Serial.print(accel.acceleration.z);
+  Serial.println(" m/s^2 ");
+
+  // Add new reading to buffer and update sample index
+  accelYBuffer[sampleIndex] = accel.acceleration.y;
+  sampleIndex = (sampleIndex + 1) % NUM_SAMPLES;
+
+  // Calculate moving average of Y-axis accelerometer data
+  float avgAccelY = 0;
+  for (int i = 0; i < NUM_SAMPLES; i++) {
+    avgAccelY += accelYBuffer[i];
+  }
+  avgAccelY /= NUM_SAMPLES;
+  
+  Serial.print(avgAccelY);
+  Serial.print(",");
+
+  // Check accelerometer threshold on averaged Y-axis data
+  if (avgAccelY <= -ACCEL_THRESHOLD) {
+    tone(buzzerPin, 150);
+  } else {
+    noTone(buzzerPin);
+  }
+
+
+  TimeTook = millis()-beginTime;
+  Serial.println(TimeTook);
+  delay(150-TimeTook);
+
+}
+
+
+  //  // serial plotter friendly format
+
+  //  Serial.print(temp.temperature);
+  //  Serial.print(",");
+
+  //  Serial.print(accel.acceleration.x);
+  //  Serial.print(","); Serial.print(accel.acceleration.y);
+  //  Serial.print(","); Serial.print(accel.acceleration.z);
+  //  Serial.print(",");
+
+  // Serial.print(gyro.gyro.x);
+  // Serial.print(","); Serial.print(gyro.gyro.y);
+  // Serial.print(","); Serial.print(gyro.gyro.z);
+  // Serial.println();
+  //  delayMicroseconds(10000);
+
+ 
 }
 
 ```
