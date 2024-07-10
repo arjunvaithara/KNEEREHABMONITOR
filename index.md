@@ -64,13 +64,14 @@ You should comment out all portions of your portfolio that you have not complete
 <p>This snippet of code ensures even sampling</p>
 
 ```c++
+void loop() {
 beginTime = millis();
 //all the rest of my code
 
 TimeTook = millis()-beginTime;
  Serial.println(TimeTook);
  delay(150-TimeTook); //ensures sampling at 150ms
-
+}
 ```
 ![SamplingExample](sampling.png)
 <p><i>Figure 13; <a href="https://www.datylon.com/blog/line-charts-sampling-time-series-data-sets">Line charts & sampling time series data sets</a> - This is how sampling works. There is a lot of noise, but by taking samples and getting an average you can get eliminate most of the noise</i></p>
