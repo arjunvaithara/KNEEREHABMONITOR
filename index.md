@@ -61,7 +61,8 @@ To fix this issue, I had to change the delay of the void loop in the code, and I
 <p>To fix this issue, I had to change the delay of the void loop in the code, and I also increased the number of samples taken per second and the data started to print again at a baud rate of 9600. </p>
 <p>After this, I can connect to bluetooth and still print data, and my buzzer will only go off if I squat too deep, (because of the flex sensor), or if my knees bend inward, (accelerometer). This meant that my main project was complete, as it could do both the things I wanted it to do.</p>
 
-![CodeFlowChart](Blankdiagram.png)
+![CodeFlowChart](CodeFlowChart.png)
+<p><i>Figure 11; Flowchart of My Code - This is flowchart goes through how my code works step by step</i></p>
 
 <p>Next, I will be working on my modifications. I am still unsure what my modification will be, but I am leaning towards something more hardware based. </p>
 
