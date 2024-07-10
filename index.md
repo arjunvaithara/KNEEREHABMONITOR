@@ -151,13 +151,13 @@ that called for a 47k resistor, and a 50k resistor was the closest round number 
 Up next is my second milestone. I plan on attaching the bluetooth module, so I can track the data from the accelerometer and flex sensor much easier.
 
 # Schematics 
-<i>Figure 4</i>; Milestone 1 Schematic - 
+<i><p>Figure 4</i>; Milestone 1 Schematic - </p>
 <img src="MainProjM1.png" width="500">
 
-<i>Figure 7</i>; Milestone 2 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) -
+<i><p>Figure 7</i>; Milestone 2 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) - </p>
 <img src="milestone2.png" width="500">
 
-<i>Figure 14</i>; Milestone 3 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) -
+<i><p>Figure 14</i>; Milestone 3 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) - </p>
 <img src="mainproj3.png" width="500">
 
 
