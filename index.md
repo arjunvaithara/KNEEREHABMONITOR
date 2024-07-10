@@ -63,12 +63,14 @@ You should comment out all portions of your portfolio that you have not complete
 
 <p>This snippet of code ensures even sampling</p>
 ```c++
+
 beginTime = millis();
 //all the rest of my code
 
 TimeTook = millis()-beginTime;
  Serial.println(TimeTook);
  delay(150-TimeTook); //ensures sampling at 150ms
+ 
 ```
 
 ![SamplingExample](sampling.png)
