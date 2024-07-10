@@ -30,7 +30,10 @@ You should comment out all portions of your portfolio that you have not complete
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE-->
 
-<p>My third and final milestone was to make the piezo buzzer buzz at a different tone when the accelerometer detected acceleration on the Y-Axis. The first thing I did was try and use the serial plotter on the Arduino IDE so I could see the data being plotted in real time. I ran into a minor issue here, where the data would not plot. After some research, I found that there couldn’t be any text attached to the data for it to print. After removing the text code, I was able to use the serial plotter.</p>
+<p> For my third and final milestone, my project detects bad squat form. Specifically, when someone’s knee bends side to side, the buzzer produces a different noise than when a squat is too deep. See figure XX for a flowchart of my code!</p>
+<p>To sense the side to side movement, I used an accelerometer. An accelerometer measures translational acceleration in three axes: the X-axis, the Y-axis, the Z-axis (See Figure 3 for example of the axes)</p>
+<p>The main form of movement during a squat is the X-axis, and the side to side movement (my knees moving side to side) is in the Y-axis. This data is smoothed over time to get a clean signal.</p>
+<p>The first thing I did was try and use the serial plotter on the Arduino IDE so I could see the data being plotted in real time. I ran into a minor issue here, where the data would not plot. After some research, I found that there couldn’t be any text attached to the data for it to print. After removing the text code, I was able to use the serial plotter.</p>
 <p>Since all the components were already attached to the knee sleeve, I could wear the sleeve and do a couple squats, and see the patterns in the accelerometer data. I also did some squats with bad form to see the difference in the patterns.</p>
 <p>When reviewing the data, I noticed that the patterns of the good squat form and the bad squat form on the serial plotter looked almost the same, and it would be very difficult to tell the difference. </p>
 <p>After seeing this, I realized that the accelerometer I was using, the MPU6050, was not good. Its data was very inaccurate with lots of noise and spikes, and it also collected data and reacted very slowly. I decided to replace it with a new accelerometer, the LSM6DS3 + LIS3MDL from Adafruit.</p>
@@ -44,8 +47,8 @@ You should comment out all portions of your portfolio that you have not complete
 <p>I found some code for the new accelerometer, and copied that, and then I coded it so that the buzzer would produce a tone when my knee bent in. </p>
 <p>The new accelerometer still had some noise and spikes in the data, so to fix this I learned about sampling the data.</p> 
 
-<img src="serialplotterdata.png" width="344" height="269">
-<p><i>Figure 9; Arduino Serial Plotter - This is an example of noise in the accelerometer.</i></p>
+<img src="serialplotteravglabeled.png" width="568" height="267">
+<p><i>Figure 9; Arduino Serial Plotter - I simulated noise in this graph. Because the spike was so fast, it didn't increase the average of the samples over time</i></p>
 
 <p>Sampling is when you take a piece of data at evenly spaced intervals to see something about the total data. In my case, I used the samples to get an average of the data in the Y-axis every second, and then I coded it so that if the average is less than the threshold, (which is the point where my knees bend in), the buzzer goes off.</p>
 
