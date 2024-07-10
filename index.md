@@ -43,7 +43,7 @@ You should comment out all portions of your portfolio that you have not complete
 <p>My first goal was to track the data of squat form. To do this, I used the serial plotter on Arduino IDE to graph my data in real time while wearing on the knee sleeve. I ran into a minor issue here, where the data would not plot. After some research, I found that there couldn’t be any text attached to the data for it to print. After removing the text code, I was able to use the serial plotter.</p>
 
 <img src="sidebysidesquat.png" width="417" height="374">
-<i><p>Figure 10; Arduino Serial Plotter - This is a side by side comparison of the knee movement of a good squat vs a bad squat. The one on top is a bad squat, and the y value drops below -3.8, which is the threshold for how much your knee should bend in while squatting. The one below is a good squat, and the y values do not drop below -3.8.</p></i>
+<p><i>Figure 10; Arduino Serial Plotter - This is a side by side comparison of the knee movement of a good squat vs a bad squat. The one on top is a bad squat, and the y value drops below -3.8, which is the threshold for how much your knee should bend in while squatting. The one below is a good squat, and the y values do not drop below -3.8.</i></p>
 
 <p>When reviewing the data, I noticed that the patterns of the good squat form and the bad squat form on the serial plotter looked almost the same, and it would be very difficult to tell the difference. </p>
 <p>After seeing this, I realized that the accelerometer I was using, the MPU6050, was the problem. Its data was very inaccurate with lots of noise and spikes, and it also collected data and reacted very slowly. I decided to replace it with a new accelerometer, the LSM6DS3 + LIS3MDL from Adafruit.</p>
@@ -152,13 +152,14 @@ Up next is my second milestone. I plan on attaching the bluetooth module, so I c
 
 # Schematics 
 <i>Figure 4</i>; Milestone 1 Schematic - 
-![Milestone1Schematic](MainProjM1.png)
+<img src="MainProjM1.png" width="3718" height="4690">
 
 <i>Figure 7</i>; Milestone 2 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) -
-![Milestone2Schematic](milestone2.png)
+<img src="milestone2.png" width="4028" height="5019">
 
 <i>Figure 14</i>; Milestone 3 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) -
-![Milestone3Schematic](mainproj3.png)
+<img src="mainproj3.png" width="3418" height="4862">
+
 
 # Code
 ```c++
