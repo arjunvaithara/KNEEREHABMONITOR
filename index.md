@@ -62,17 +62,16 @@ You should comment out all portions of your portfolio that you have not complete
 <p>Sampling is when you take a piece of data at evenly spaced intervals to see something about the total data. In my case, I used the samples to get an average of the data in the Y-axis every second, and then I coded it so that if the average is less than the threshold, (which is the point where my knees bend in), the buzzer goes off.</p>
 
 <p>This snippet of code ensures even sampling</p>
-```c++
 
+```c++
 beginTime = millis();
 //all the rest of my code
 
 TimeTook = millis()-beginTime;
  Serial.println(TimeTook);
  delay(150-TimeTook); //ensures sampling at 150ms
- 
-```
 
+```
 ![SamplingExample](sampling.png)
 <p><i>Figure 13; <a href="https://www.datylon.com/blog/line-charts-sampling-time-series-data-sets">Line charts & sampling time series data sets</a> - This is how sampling works. There is a lot of noise, but by taking samples and getting an average you can get eliminate most of the noise</i></p>
   
