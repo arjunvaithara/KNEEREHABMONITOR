@@ -1,11 +1,5 @@
 # Knee Rehab Monitor
 
-![FinalProjectPicture](Finalprojlabeled.png)
-<p><i>Figure 11; Final Project - This is is a picture of my final project with the main componenets labeled</i></p
-                                                                                                                 
-![CodeFlowChart](CodeFlowChart.png)
-
-<p><i>Figure 12; Flowchart of My Code - This is flowchart goes through how my code works step by step</i></p>
 <!---
 Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!
 
@@ -24,8 +18,14 @@ You should comment out all portions of your portfolio that you have not complete
 
 <img src="Arjun_V.png" width="305" height="400">
   
-# Third Milestone
+# Final Milestone
 
+![FinalProjectPicture](Finalprojlabeled.png)
+<p><i>Figure 8; Final Project - This is is a picture of my final project with the main componenets labeled</i></p
+                                                                                                                 
+![CodeFlowChart](CodeFlowChart.png)
+
+<p><i>Figure 9; Flowchart of My Code - This is flowchart goes through how my code works step by step</i></p>
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**-->
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x8ZHpPgjGdM?si=cjnFPUpM2n6mxZ55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -36,30 +36,43 @@ You should comment out all portions of your portfolio that you have not complete
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE-->
 
-<p> For my third and final milestone, my project detects bad squat form. Specifically, when someone’s knee bends side to side, the buzzer produces a different noise than when a squat is too deep. See figure XX for a flowchart of my code!</p>
+<p> For my third and final milestone, my project detects bad squat form. Specifically, when someone’s knee bends side to side, the buzzer produces a different noise than when a squat is too deep. See figure 9 for a flowchart of my code!</p>
 <p>To sense the side to side movement, I used an accelerometer. An accelerometer measures translational acceleration in three axes: the X-axis, the Y-axis, the Z-axis (See Figure 3 for example of the axes)</p>
-<p>The main form of movement during a squat is the X-axis, and the side to side movement (my knees moving side to side) is in the Y-axis. This data is smoothed over time to get a clean signal.</p>
-<p>The first thing I did was try and use the serial plotter on the Arduino IDE so I could see the data being plotted in real time. I ran into a minor issue here, where the data would not plot. After some research, I found that there couldn’t be any text attached to the data for it to print. After removing the text code, I was able to use the serial plotter.</p>
-<p>Since all the components were already attached to the knee sleeve, I could wear the sleeve and do a couple squats, and see the patterns in the accelerometer data. I also did some squats with bad form to see the difference in the patterns.</p>
+<p>The main form of movement during a squat is the X-axis, and the side to side movement (my knees moving side to side) is in the Y-axis. Therefore, if there’s a lot of side-to-side movement sensed, I categorize as a bad squat. This data is smoothed over time to get a clean signal since there was a lot of noise in the sensor.</p>
+<p>My first goal was to track the data of squat form. To do this, I used the serial plotter on Arduino IDE to graph my data in real time while wearing on the knee sleeve. I ran into a minor issue here, where the data would not plot. After some research, I found that there couldn’t be any text attached to the data for it to print. After removing the text code, I was able to use the serial plotter.</p>
+
+![SidebySideSquatForm](sidebysidesquat.png)
+<i><p>Figure 10; Arduino Serial Plotter - This is a side by side comparison of the knee movement of a good squat vs a bad squat. The one on top is a bad squat, and the y value drops below -3.8, which is the threshold for how much your knee should bend in while squatting. The one below is a good squat, and the y values do not drop below -3.8.</p></i>
+
 <p>When reviewing the data, I noticed that the patterns of the good squat form and the bad squat form on the serial plotter looked almost the same, and it would be very difficult to tell the difference. </p>
-<p>After seeing this, I realized that the accelerometer I was using, the MPU6050, was not good. Its data was very inaccurate with lots of noise and spikes, and it also collected data and reacted very slowly. I decided to replace it with a new accelerometer, the LSM6DS3 + LIS3MDL from Adafruit.</p>
+<p>After seeing this, I realized that the accelerometer I was using, the MPU6050, was the problem. Its data was very inaccurate with lots of noise and spikes, and it also collected data and reacted very slowly. I decided to replace it with a new accelerometer, the LSM6DS3 + LIS3MDL from Adafruit.</p>
 
 <img src="MPU6050.png" width="232" height="301">
 
 <img src="LSM6DS3.png" width="323" height="262">
 
-<p><i>Figure 8; <a href="https://www.amazon.com/Axis-Accelerometer-Gyroscope-Sensor-Quadcopter/dp/B06XDBFDM5">MPU6050 Module 3 Axis Accelerometer Gyroscope GY-521 Analog Gyro Sensors Breakout Board for Quadcopter Arduino Robotics Raspberry Pi Boards</a> and <a href="https://learn.adafruit.com/adafruit-lsm6ds3tr-c-lis3mdl-precision-9-dof-imu/overview">Adafruit LSM6DS3TR-C + LIS3MDL - Precision 9 DoF IMU</a>- This is a side by side comparison of the two accelerometers</i></p>
+<p><i>Figure 11; <a href="https://www.amazon.com/Axis-Accelerometer-Gyroscope-Sensor-Quadcopter/dp/B06XDBFDM5">MPU6050 Module 3 Axis Accelerometer Gyroscope GY-521 Analog Gyro Sensors Breakout Board for Quadcopter Arduino Robotics Raspberry Pi Boards</a> and <a href="https://learn.adafruit.com/adafruit-lsm6ds3tr-c-lis3mdl-precision-9-dof-imu/overview">Adafruit LSM6DS3TR-C + LIS3MDL - Precision 9 DoF IMU</a>- This is a side by side comparison of the two accelerometers</i></p>
 
 <p>I found some code for the new accelerometer, and copied that, and then I coded it so that the buzzer would produce a tone when my knee bent in. </p>
 <p>The new accelerometer still had some noise and spikes in the data, so to fix this I learned about sampling the data.</p> 
 
 <img src="serialplotteravglabeled.png" width="568" height="267">
-<p><i>Figure 9; Arduino Serial Plotter - I simulated noise in this graph. Because the spike was so fast, it didn't increase the average of the samples over time</i></p>
+<p><i>Figure 12; Arduino Serial Plotter - I simulated noise in this graph. Because the spike was so fast, it didn't increase the average of the samples over time</i></p>
 
 <p>Sampling is when you take a piece of data at evenly spaced intervals to see something about the total data. In my case, I used the samples to get an average of the data in the Y-axis every second, and then I coded it so that if the average is less than the threshold, (which is the point where my knees bend in), the buzzer goes off.</p>
 
+<p>This snippet of code ensures even sampling</p>
+```c++
+beginTime = millis();
+//all the rest of my code
+
+TimeTook = millis()-beginTime;
+ Serial.println(TimeTook);
+ delay(150-TimeTook); //ensures sampling at 150ms
+```
+
 ![SamplingExample](sampling.png)
-<p><i>Figure 10; <a href="https://www.datylon.com/blog/line-charts-sampling-time-series-data-sets">Line charts & sampling time series data sets</a> - This is how sampling works. There is a lot of noise, but by taking samples and getting an average you can get eliminate most of the noise</i></p>
+<p><i>Figure 13; <a href="https://www.datylon.com/blog/line-charts-sampling-time-series-data-sets">Line charts & sampling time series data sets</a> - This is how sampling works. There is a lot of noise, but by taking samples and getting an average you can get eliminate most of the noise</i></p>
   
 <p>This works because even if there is a spike in the data, the average of the data per second will still be about the same. But, when there is an actual change in the y axis, (my knees), the average will go down and will cause the buzzer to go off. </p>
 <p>I coded the Arduino to take samples and make an average of the Y-axis data, but the new code made it so that the data would not print on the serial monitor. To solve the issue, I increased the baud rate and the data started printing again. The issue was that the bluetooth module could only communicate with the baud rate of 9600, which was much lower than what I previously increased it to. </p>
