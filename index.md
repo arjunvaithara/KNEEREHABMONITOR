@@ -152,15 +152,15 @@ Up next is my second milestone. I plan on attaching the bluetooth module, so I c
 
 # Schematics 
 
-<i><p>Figure 12</i>; Milestone 1 Schematic - </p>
+<p><i>Figure 12</i>; Milestone 1 Schematic - </p>
 
 <img src="MainProjM1.png" width="500">
 
-<i><p>Figure 13</i>; Milestone 2 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) - </p>
+<p><i>Figure 13</i>; Milestone 2 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) - </p> 
 
 <img src="milestone2.png" width="500">
 
-<i><p>Figure 14</i>; Milestone 3 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) - </p>
+<p><i>Figure 14</i>; Milestone 3 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) - </p>
 
 <img src="mainproj3.png" width="500">
 
@@ -479,7 +479,7 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 ![PIRSensorDiagram](0118-pir_motion_sensor.jpg.png)
 
-<i><p>Figure 2</i> ; Photo from Adafruit, Lady Ada - The image shows how the signal is generated. The heat sources passes through the detecting area and the PIR sensor registers that.</p>
+<p><i>Figure 2</i> ; Photo from Adafruit, Lady Ada - The image shows how the signal is generated. The heat sources passes through the detecting area and the PIR sensor registers that.</p>
 
 <p></p>I had a few major challenges, with the biggest one being the difficulty of uploading my code to the Arduino. The port for the Arduino would not show up on the Arduino software. Therefore I could not upload my fixed code. I tried many things to troubleshoot this issue. For example, I tried pressing the reset button on Arduino, removing and reinstalling the software, and even testing the cable and the USB-C adapter, but the issue ended up being more simple. After rewiring the board, I got it working again.
 <p></p>Next, I will be working on my main project, the Knee Rehabilitation Monitor. The starter project gave me a good understanding of wiring, coding, and breadboards, so I am looking forward to my main project with this knowledge. The reason I chose my main project is because it looked like a helpful device for people with frequent knee injuries, like athletes or the elderly, and I think making something like the knee rehab monitor will help me find and make other ways to help in the future.
