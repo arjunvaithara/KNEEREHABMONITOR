@@ -151,13 +151,17 @@ that called for a 47k resistor, and a 50k resistor was the closest round number 
 Up next is my second milestone. I plan on attaching the bluetooth module, so I can track the data from the accelerometer and flex sensor much easier.
 
 # Schematics 
+
 <i><p>Figure 12</i>; Milestone 1 Schematic - </p>
+
 <img src="MainProjM1.png" width="500">
 
 <i><p>Figure 13</i>; Milestone 2 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) - </p>
+
 <img src="milestone2.png" width="500">
 
 <i><p>Figure 14</i>; Milestone 3 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) - </p>
+
 <img src="mainproj3.png" width="500">
 
 
@@ -474,6 +478,7 @@ Don't forget to place the link of where to buy each component inside the quotati
 <p></p>The second input and output are the PIR, or Passive Infrared motion sensor and the LED, or Light Emitting Diodes. A PIR sensor detects infrared radiation. It does this by sensing a heat source’s movements, which cause a pulse which the PIR sensor sends as a signal. When the sensor detects the heat source moving, the Arduino reads it and tells the LED to turn off. The Arduino can have code uploaded to it, and that tells the microcontroller what to do.
 
 ![PIRSensorDiagram](0118-pir_motion_sensor.jpg.png)
+
 <i><p>Figure 2</i> ; Photo from Adafruit, Lady Ada - The image shows how the signal is generated. The heat sources passes through the detecting area and the PIR sensor registers that.</p>
 
 <p></p>I had a few major challenges, with the biggest one being the difficulty of uploading my code to the Arduino. The port for the Arduino would not show up on the Arduino software. Therefore I could not upload my fixed code. I tried many things to troubleshoot this issue. For example, I tried pressing the reset button on Arduino, removing and reinstalling the software, and even testing the cable and the USB-C adapter, but the issue ended up being more simple. After rewiring the board, I got it working again.
