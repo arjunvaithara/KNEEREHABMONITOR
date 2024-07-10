@@ -57,14 +57,13 @@ You should comment out all portions of your portfolio that you have not complete
   
 <p>This works because even if there is a spike in the data, the average of the data per second will still be about the same. But, when there is an actual change in the y axis, (my knees), the average will go down and will cause the buzzer to go off. </p>
 <p>I coded the Arduino to take samples and make an average of the Y-axis data, but the new code made it so that the data would not print on the serial monitor. To solve the issue, I increased the baud rate and the data started printing again. The issue was that the bluetooth module could only communicate with the baud rate of 9600, which was much lower than what I previously increased it to. </p>
-To fix this issue, I had to change the delay of the void loop in the code, and I also increased the number of samples taken per second and the data started to print again at a baud rate of 9600.</p>
 <p>To fix this issue, I had to change the delay of the void loop in the code, and I also increased the number of samples taken per second and the data started to print again at a baud rate of 9600. </p>
-<p>After this, I can connect to bluetooth and still print data, and my buzzer will only go off if I squat too deep, (because of the flex sensor), or if my knees bend inward, (accelerometer). This meant that my main project was complete, as it could do both the things I wanted it to do.</p>
+<p>After this, I can connect to bluetooth and still print data, and my buzzer will only go off if I squat too deep, (because of the flex sensor), or if my knees bend inward, (accelerometer). This meant that my main project was complete!</p>
 
 ![CodeFlowChart](CodeFlowChart.png)
 <p><i>Figure 11; Flowchart of My Code - This is flowchart goes through how my code works step by step</i></p>
 
-<p>Next, I will be working on my modifications. I am still unsure what my modification will be, but I am leaning towards something more hardware based. </p>
+<p>Next, I will be working on my modifications. I am planning on doing an exoskeleton modification, which will help the strength of the user of the knee sleeve. It will be mainly hardware based. </p>
 
 # Second Milestone
 
