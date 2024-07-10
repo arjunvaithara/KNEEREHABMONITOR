@@ -20,12 +20,12 @@ You should comment out all portions of your portfolio that you have not complete
   
 # Final Milestone
 
-![FinalProjectPicture](Finalprojlabeled.png)
+<img src="Finalprojlabeled.png" width="466" height="346">
 <p><i>Figure 8; Final Project - This is is a picture of my final project with the main componenets labeled</i></p
-                                                                                                                 
-![CodeFlowChart](CodeFlowChart.png)
 
+<img src="CodeFlowChart.png" width="437" height="500">                                                                                        
 <p><i>Figure 9; Flowchart of My Code - This is flowchart goes through how my code works step by step</i></p>
+
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**-->
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x8ZHpPgjGdM?si=cjnFPUpM2n6mxZ55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -41,7 +41,7 @@ You should comment out all portions of your portfolio that you have not complete
 <p>The main form of movement during a squat is the X-axis, and the side to side movement (my knees moving side to side) is in the Y-axis. Therefore, if there’s a lot of side-to-side movement sensed, I categorize as a bad squat. This data is smoothed over time to get a clean signal since there was a lot of noise in the sensor.</p>
 <p>My first goal was to track the data of squat form. To do this, I used the serial plotter on Arduino IDE to graph my data in real time while wearing on the knee sleeve. I ran into a minor issue here, where the data would not plot. After some research, I found that there couldn’t be any text attached to the data for it to print. After removing the text code, I was able to use the serial plotter.</p>
 
-![SidebySideSquatForm](sidebysidesquat.png)
+<img src="sidebysidesquat.png" width="417" height="374">
 <i><p>Figure 10; Arduino Serial Plotter - This is a side by side comparison of the knee movement of a good squat vs a bad squat. The one on top is a bad squat, and the y value drops below -3.8, which is the threshold for how much your knee should bend in while squatting. The one below is a good squat, and the y values do not drop below -3.8.</p></i>
 
 <p>When reviewing the data, I noticed that the patterns of the good squat form and the bad squat form on the serial plotter looked almost the same, and it would be very difficult to tell the difference. </p>
@@ -73,7 +73,8 @@ TimeTook = millis()-beginTime;
  delay(150-TimeTook); //ensures sampling at 150ms
 }
 ```
-![SamplingExample](sampling.png)
+
+<img src="sampling.png" width="344" height="269">
 <p><i>Figure 13; <a href="https://www.datylon.com/blog/line-charts-sampling-time-series-data-sets">Line charts & sampling time series data sets</a> - This is how sampling works. There is a lot of noise, but by taking samples and getting an average you can get eliminate most of the noise</i></p>
   
 <p>This works because even if there is a spike in the data, the average of the data per second will still be about the same. But, when there is an actual change in the y axis, (my knees), the average will go down and will cause the buzzer to go off. </p>
