@@ -24,7 +24,7 @@ You should comment out all portions of your portfolio that you have not complete
 <p><i>Figure 8; Final Project - This is is a picture of my final project with the main componenets labeled</i></p>
                                                                                                                 
                                                                                                          
-<img src="CodeFlowChart.png" width="437" height="500">                                                                                        
+<img src="fixedflowchart.png" width="437" height="500">                                                                                        
 <p><i>Figure 9; Flowchart of My Code - This is flowchart goes through how my code works step by step</i></p>
 
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**-->
