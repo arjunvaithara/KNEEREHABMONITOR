@@ -23,7 +23,7 @@ You should comment out all portions of your portfolio that you have not complete
 <img src="Finalprojlabeled.png" width="466" height="346">
 <p><i>Figure 8; Final Project - This is is a picture of my final project with the main componenets labeled</i></p
                                                                                                                 
-
+![CodeFlow](CodeFlowChart.png)
 <img src="CodeFlowChart.png" width="437" height="500">                                                                                        
 <p><i>Figure 9; Flowchart of My Code - This is flowchart goes through how my code works step by step</i></p>
 
