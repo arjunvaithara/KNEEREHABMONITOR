@@ -54,7 +54,7 @@ You should comment out all portions of your portfolio that you have not complete
 
 <p><i>Figure 11; <a href="https://www.amazon.com/Axis-Accelerometer-Gyroscope-Sensor-Quadcopter/dp/B06XDBFDM5">MPU6050 Module 3 Axis Accelerometer Gyroscope GY-521 Analog Gyro Sensors Breakout Board for Quadcopter Arduino Robotics Raspberry Pi Boards</a> and <a href="https://learn.adafruit.com/adafruit-lsm6ds3tr-c-lis3mdl-precision-9-dof-imu/overview">Adafruit LSM6DS3TR-C + LIS3MDL - Precision 9 DoF IMU</a>- This is a side by side comparison of the two accelerometers</i></p>
 
-<p>I found some code for the new accelerometer, and copied that, and then I coded it so that the buzzer would produce a tone when my knee bent in. </p>
+<p>I found some code for the new accelerometer in which the buzzer would produce a tone when my knee bent in. </p>
 <p>The new accelerometer still had some noise and spikes in the data, so to fix this I learned about sampling the data.</p> 
 
 <img src="serialplotteravglabeled.png" width="568" height="267">
