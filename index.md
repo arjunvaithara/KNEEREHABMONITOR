@@ -152,13 +152,13 @@ Up next is my second milestone. I plan on attaching the bluetooth module, so I c
 
 # Schematics 
 <i>Figure 4</i>; Milestone 1 Schematic - 
-![m1](MainProjM1.png)
+<img src="MainProjM1.png" width="500">
 
 <i>Figure 7</i>; Milestone 2 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) -
-<img src="milestone2.png" width="1342.75" height="1673">
+<img src="milestone2.png" width="500">
 
 <i>Figure 14</i>; Milestone 3 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) -
-<img src="mainproj3.png" width="1139.5" height="1620.75">
+<img src="mainproj3.png" width="500">
 
 
 # Code
