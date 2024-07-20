@@ -23,56 +23,54 @@ You should comment out all portions of your portfolio that you have not complete
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Vbn4I2UtOLk?si=Q1i0YKJm0Ya4K-V0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-MODIFICATION WRITEUP
+<p>My addition to the Knee Rehabilitation monitor is an external knee brace that adds hinges onto the main project, and a Servo that pulls my leg in with a switch.</p>
 
-My addition to the Knee Rehabilitation monitor is an external knee brace that adds hinges onto the main project, and a Servo that pulls my leg in with a switch. 
-
-The first step of this modification was to learn how servos are wired and how they work. Servos are motors that can be programmed so they can turn to precise angles or speeds. I required a servo for this modification so I could pull my lower leg in to a specific angle.
+<p>The first step of this modification was to learn how servos are wired and how they work. Servos are motors that can be programmed so they can turn to precise angles or speeds. I required a servo for this modification so I could pull my lower leg in to a specific angle.</p>
 
 <img src="3pinswitch.png" width="500">
 
-Figure 1; <a href="https://learn.adafruit.com/make-it-move-with-crickit/standard-servo-motors">About Standard Servo Motors</a> - This image shows the angle a servo can turn to.
+<i><p>Figure 1; <a href="https://learn.adafruit.com/make-it-move-with-crickit/standard-servo-motors">About Standard Servo Motors</a> - This image shows the angle a servo can turn to.</i></p>
 
-Next I wired the servo into the Arduino I used for my main project, and I uploaded some example code which constantly turned the servo back and forth to see the Servo in action. After observing the code, I got a better understanding of how I could code my servo with my main project.
+<p>Next I wired the servo into the Arduino I used for my main project, and I uploaded some example code which constantly turned the servo back and forth to see the Servo in action. After observing the code, I got a better understanding of how I could code my servo with my main project.</p>
 
-My next step was how I could use a switch to control the Servo. I found a three pin switch, and here I ran into a challenge. I did not understand what the third pin was for. I did some research, and I realized that the two pins that were connected were the pins that belonged to GND and VCC. However, the switch I was using had 3 positions. When it was all the way left the right two pins were connected and when it was all the way right the left two would be connected.
+<p>My next step was how I could use a switch to control the Servo. I found a three pin switch, and here I ran into a challenge. I did not understand what the third pin was for. I did some research, and I realized that the two pins that were connected were the pins that belonged to GND and VCC. However, the switch I was using had 3 positions. When it was all the way left the right two pins were connected and when it was all the way right the left two would be connected.</p>
 
 
 
-Here, after doing more research, I wired the VCC wire to the left, the ground to the right, and the signal to the middle. This way, the switch could always give a signal, and if the switch was all the way left it would turn the servo on, and if it was in the middle or right, it would turn the servo off. I figured this out by writing some code to make the serial monitor print if the switch was on or off. 
+<p>Here, after doing more research, I wired the VCC wire to the left, the ground to the right, and the signal to the middle. This way, the switch could always give a signal, and if the switch was all the way left it would turn the servo on, and if it was in the middle or right, it would turn the servo off. I figured this out by writing some code to make the serial monitor print if the switch was on or off.</p>
 
-My next step was to make the servo turn 180 degrees when the switch was on, and then go back to 0 degrees if the switch was off. I used an if else conditional in the Arduino IDE.
+<p>My next step was to make the servo turn 180 degrees when the switch was on, and then go back to 0 degrees if the switch was off. I used an if else conditional in the Arduino IDE.</p>
 
-After the code was done, I began my hardware. First, I soldered all the wires in place so they could be attached to my knee sleeve. After they were soldered, I waited for my knee brace to arrive.
+<p>After the code was done, I began my hardware. First, I soldered all the wires in place so they could be attached to my knee sleeve. After they were soldered, I waited for my knee brace to arrive.</p>
 
-When my knee brace arrived, I figured out how I could combine my main project’s circuitry with the external knee brace and hinges, and where I would mount my Servo.
+<p>When my knee brace arrived, I figured out how I could combine my main project’s circuitry with the external knee brace and hinges, and where I would mount my Servo.</p>
 
-After measuring and drawing it out, I figured that the knee brace was large enough to keep my circuitry exposed, and the only thing I cut was a place for the servo and the string it would pull on. 
+<p>After measuring and drawing it out, I figured that the knee brace was large enough to keep my circuitry exposed, and the only thing I cut was a place for the servo and the string it would pull on. </p>
 
-I decided to mount the Servo on the hinge. I cut out a hole on the cloth holder of the hinge, so I could permanently attach the servo to the metal part of the hinge. After cutting it out, I hot glued the servo to the hinge so it would stay there. I also cut a hole for the string to connect to the other end of the hinge.
+<p>I decided to mount the Servo on the hinge. I cut out a hole on the cloth holder of the hinge, so I could permanently attach the servo to the metal part of the hinge. After cutting it out, I hot glued the servo to the hinge so it would stay there. I also cut a hole for the string to connect to the other end of the hinge.</p>
 
 
 
 <img src="Servoandstring.JPG" width="500">
 
-Figure 2; This shows where the Servo and string is attached.
+<p><i>Figure 2; This shows where the Servo and string is attached.</i></p>
 
 
 <img src="justhehinge.jpeg" width="500">
 
-Figure 3; This picture is just the hinge, servo, and string.
+<p><i>Figure 3; This picture is just the hinge, servo, and string.</i></p>
 
 
-Then, I wore my knee sleeve, and then wore the external knee brace on top of it.
+<p>Then, I wore my knee sleeve, and then wore the external knee brace on top of it.</p>
 
 
 <img src="fullproject.JPG" width="500">
 
-Figure 4; This image shows the exposed circuitry of the main project, as well as the additional servo.
+<p><i>Figure 4; This image shows the exposed circuitry of the main project, as well as the additional servo.</i></p>
 
-This modification made it so that I could curl my leg without having to actually curl it. For someone who can't curl their leg due to an injury, this modification could help them a lot with their daily life.
+<p>This modification made it so that I could curl my leg without having to actually curl it. For someone who can't curl their leg due to an injury, this modification could help them a lot with their daily life.</p>
 
-At Bluestamp Engineering, I learned a lot. Coming in, I didn’t know a lot about either software or hardware, and after completing my project I learned a lot about coding for the Arduino, and I also learned a ton about hardware like how to wire things and soldering.
+<p>At Bluestamp Engineering, I learned a lot. Coming in, I didn’t know a lot about either software or hardware, and after completing my project I learned a lot about coding for the Arduino, and I also learned a ton about hardware like how to wire things and soldering.</p>
 
 
 # Final Milestone
