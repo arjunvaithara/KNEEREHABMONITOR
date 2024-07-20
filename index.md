@@ -29,7 +29,7 @@ My addition to the Knee Rehabilitation monitor is an external knee brace that ad
 
 The first step of this modification was to learn how servos are wired and how they work. Servos are motors that can be programmed so they can turn to precise angles or speeds. I required a servo for this modification so I could pull my lower leg in to a specific angle.
 
-![3pinswitch](3pinswitch.png)
+<img src="3pinswitch.png" width="500">
 
 Figure 1; <a href="https://learn.adafruit.com/make-it-move-with-crickit/standard-servo-motors">About Standard Servo Motors</a> - This image shows the angle a servo can turn to.
 
@@ -52,20 +52,22 @@ After measuring and drawing it out, I figured that the knee brace was large enou
 I decided to mount the Servo on the hinge. I cut out a hole on the cloth holder of the hinge, so I could permanently attach the servo to the metal part of the hinge. After cutting it out, I hot glued the servo to the hinge so it would stay there. I also cut a hole for the string to connect to the other end of the hinge.
 
 
-![ServoAndString](Servoandstring.JPG)
+
+<img src="Servoandstring.JPG" width="500">
 
 Figure 2; This shows where the Servo and string is attached.
 
 
-
-![JustTheHinge](justhehinge.jpeg)
+<img src="justhehinge.jpeg" width="500">
 
 Figure 3; This picture is just the hinge, servo, and string.
 
 
 Then, I wore my knee sleeve, and then wore the external knee brace on top of it.
 
-![FinalProjectOnMe](fullproject.JPG)
+
+<img src="fullproject.JPG" width="500">
+
 Figure 4; This image shows the exposed circuitry of the main project, as well as the additional servo.
 
 This modification made it so that I could curl my leg without having to actually curl it. For someone who can't curl their leg due to an injury, this modification could help them a lot with their daily life.
