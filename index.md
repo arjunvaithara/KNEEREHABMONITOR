@@ -18,15 +18,62 @@ You should comment out all portions of your portfolio that you have not complete
 <!---**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**-->
 
 <img src="Arjun_V.png" width="305" height="400">
-  
+
+# Modification
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Vbn4I2UtOLk?si=Q1i0YKJm0Ya4K-V0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+MODIFICATION WRITEUP
+
+My addition to the Knee Rehabilitation monitor is an external knee brace that adds hinges onto the main project, and a Servo that pulls my leg in with a switch. 
+
+The first step of this modification was to learn how servos are wired and how they work. Servos are motors that can be programmed so they can turn to precise angles or speeds. I required a servo for this modification so I could pull my lower leg in to a specific angle.
+
+Figure 1; <a href="https://learn.adafruit.com/make-it-move-with-crickit/standard-servo-motors">About Standard Servo Motors</a> - This image shows the angle a servo can turn to.
+
+Next I wired the servo into the Arduino I used for my main project, and I uploaded some example code which constantly turned the servo back and forth to see the Servo in action. After observing the code, I got a better understanding of how I could code my servo with my main project.
+
+My next step was how I could use a switch to control the Servo. I found a three pin switch, and here I ran into a challenge. I did not understand what the third pin was for. I did some research, and I realized that the two pins that were connected were the pins that belonged to GND and VCC. However, the switch I was using had 3 positions. When it was all the way left the right two pins were connected and when it was all the way right the left two would be connected.
+
+
+
+Here, after doing more research, I wired the VCC wire to the left, the ground to the right, and the signal to the middle. This way, the switch could always give a signal, and if the switch was all the way left it would turn the servo on, and if it was in the middle or right, it would turn the servo off. I figured this out by writing some code to make the serial monitor print if the switch was on or off. 
+
+My next step was to make the servo turn 180 degrees when the switch was on, and then go back to 0 degrees if the switch was off. I used an if else conditional in the Arduino IDE.
+
+After the code was done, I began my hardware. First, I soldered all the wires in place so they could be attached to my knee sleeve. After they were soldered, I waited for my knee brace to arrive.
+
+When my knee brace arrived, I figured out how I could combine my main project’s circuitry with the external knee brace and hinges, and where I would mount my Servo.
+
+After measuring and drawing it out, I figured that the knee brace was large enough to keep my circuitry exposed, and the only thing I cut was a place for the servo and the string it would pull on. 
+
+I decided to mount the Servo on the hinge. I cut out a hole on the cloth holder of the hinge, so I could permanently attach the servo to the metal part of the hinge. After cutting it out, I hot glued the servo to the hinge so it would stay there. I also cut a hole for the string to connect to the other end of the hinge.
+
+
+Figure 2; This shows where the Servo and string is attached.
+
+
+
+Figure 3; This picture is just the hinge, servo, and string.
+
+
+Then, I wore my knee sleeve, and then wore the external knee brace on top of it.
+
+Figure 4; This image shows the exposed circuitry of the main project, as well as the additional servo.
+
+This modification made it so that I could curl my leg without having to actually curl it. For someone who can't curl their leg due to an injury, this modification could help them a lot with their daily life.
+
+At Bluestamp Engineering, I learned a lot. Coming in, I didn’t know a lot about either software or hardware, and after completing my project I learned a lot about coding for the Arduino, and I also learned a ton about hardware like how to wire things and soldering.
+
+
 # Final Milestone
 
 <img src="Finalprojlabeled.png" width="466" height="346">
-<p><i>Figure 1; Final Project - This is is a picture of my final project with the main componenets labeled</i></p>
+<p><i>Figure 5; Final Project - This is is a picture of my final project with the main componenets labeled</i></p>
                                                                                                                 
                                                                                                          
 <img src="fixedflowchart.png" width="437" height="500">                                                                                        
-<p><i>Figure 2; Flowchart of My Code - This is flowchart goes through how my code works step by step</i></p>
+<p><i>Figure 6; Flowchart of My Code - This is flowchart goes through how my code works step by step</i></p>
 
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**-->
 
@@ -38,13 +85,13 @@ You should comment out all portions of your portfolio that you have not complete
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE-->
 
-<p> For my third and final milestone, my project detects bad squat form. Specifically, when someone’s knee bends side to side, the buzzer produces a different noise than when a squat is too deep. See figure 2 for a flowchart of my code!</p>
-<p>To sense the side to side movement, I used an accelerometer. An accelerometer measures translational acceleration in three axes: the X-axis, the Y-axis, the Z-axis (See Figure 11 for example of the axes)</p>
+<p> For my third and final milestone, my project detects bad squat form. Specifically, when someone’s knee bends side to side, the buzzer produces a different noise than when a squat is too deep. See figure 6 for a flowchart of my code!</p>
+<p>To sense the side to side movement, I used an accelerometer. An accelerometer measures translational acceleration in three axes: the X-axis, the Y-axis, the Z-axis (See Figure 15 for example of the axes)</p>
 <p>The main form of movement during a squat is the X-axis, and the side to side movement (my knees moving side to side) is in the Y-axis. Therefore, if there’s a lot of side-to-side movement sensed, I categorize as a bad squat. This data is smoothed over time to get a clean signal since there was a lot of noise in the sensor.</p>
 <p>My first goal was to track the data of squat form. To do this, I used the serial plotter on Arduino IDE to graph my data in real time while wearing on the knee sleeve. I ran into a minor issue here, where the data would not plot. After some research, I found that there couldn’t be any text attached to the data for it to print. After removing the text code, I was able to use the serial plotter.</p>
 
 <img src="sidebysidesquat.png" width="417" height="374">
-<p><i>Figure 3; Arduino Serial Plotter - This is a side by side comparison of the knee movement of a good squat vs a bad squat. The one on top is a bad squat, and the y value drops below -3.8, which is the threshold for how much your knee should bend in while squatting. The one below is a good squat, and the y values do not drop below -3.8.</i></p>
+<p><i>Figure 7; Arduino Serial Plotter - This is a side by side comparison of the knee movement of a good squat vs a bad squat. The one on top is a bad squat, and the y value drops below -3.8, which is the threshold for how much your knee should bend in while squatting. The one below is a good squat, and the y values do not drop below -3.8.</i></p>
 
 <p>When reviewing the data, I noticed that the patterns of the good squat form and the bad squat form on the serial plotter looked almost the same, and it would be very difficult to tell the difference. </p>
 <p>After seeing this, I realized that the accelerometer I was using, the MPU6050, was the problem. Its data was very inaccurate with lots of noise and spikes, and it also collected data and reacted very slowly. I decided to replace it with a new accelerometer, the LSM6DS3 + LIS3MDL from Adafruit.</p>
@@ -53,13 +100,13 @@ You should comment out all portions of your portfolio that you have not complete
 
 <img src="LSM6DS3.png" width="323" height="262">
 
-<p><i>Figure 4; <a href="https://www.amazon.com/Axis-Accelerometer-Gyroscope-Sensor-Quadcopter/dp/B06XDBFDM5">MPU6050 Module 3 Axis Accelerometer Gyroscope GY-521 Analog Gyro Sensors Breakout Board for Quadcopter Arduino Robotics Raspberry Pi Boards</a> and <a href="https://learn.adafruit.com/adafruit-lsm6ds3tr-c-lis3mdl-precision-9-dof-imu/overview">Adafruit LSM6DS3TR-C + LIS3MDL - Precision 9 DoF IMU</a>- This is a side by side comparison of the two accelerometers</i></p>
+<p><i>Figure 8; <a href="https://www.amazon.com/Axis-Accelerometer-Gyroscope-Sensor-Quadcopter/dp/B06XDBFDM5">MPU6050 Module 3 Axis Accelerometer Gyroscope GY-521 Analog Gyro Sensors Breakout Board for Quadcopter Arduino Robotics Raspberry Pi Boards</a> and <a href="https://learn.adafruit.com/adafruit-lsm6ds3tr-c-lis3mdl-precision-9-dof-imu/overview">Adafruit LSM6DS3TR-C + LIS3MDL - Precision 9 DoF IMU</a>- This is a side by side comparison of the two accelerometers</i></p>
 
 <p>I found some code for the new accelerometer in which the buzzer would produce a tone when my knee bent in. </p>
 <p>The new accelerometer still had some noise and spikes in the data, so to fix this I learned about sampling the data.</p> 
 
 <img src="serialplotteravglabeled.png" width="568" height="267">
-<p><i>Figure 5; Arduino Serial Plotter - I simulated noise in this graph. Because the spike was so fast, it didn't increase the average of the samples over time</i></p>
+<p><i>Figure 9; Arduino Serial Plotter - I simulated noise in this graph. Because the spike was so fast, it didn't increase the average of the samples over time</i></p>
 
 <p>Sampling is when you take a piece of data at evenly spaced intervals to see something about the total data. In my case, I used the samples to get an average of the data in the Y-axis every second, and then I coded it so that if the average is less than the threshold, (which is the point where my knees bend in), the buzzer goes off.</p>
 
@@ -77,7 +124,7 @@ TimeTook = millis()-beginTime;
 ```
 
 <img src="sampling.png" width="344" height="269">
-<p><i>Figure 6; <a href="https://www.datylon.com/blog/line-charts-sampling-time-series-data-sets">Line charts & sampling time series data sets</a> - This is how sampling works. There is a lot of noise, but by taking samples and getting an average you can get eliminate most of the noise</i></p>
+<p><i>Figure 10; <a href="https://www.datylon.com/blog/line-charts-sampling-time-series-data-sets">Line charts & sampling time series data sets</a> - This is how sampling works. There is a lot of noise, but by taking samples and getting an average you can get eliminate most of the noise</i></p>
   
 <p>This works because even if there is a spike in the data, the average of the data per second will still be about the same. But, when there is an actual change in the y axis, (my knees), the average will go down and will cause the buzzer to go off. </p>
 <p>I coded the Arduino to take samples and make an average of the Y-axis data, but the new code made it so that the data would not print on the serial monitor. To solve the issue, I increased the baud rate and the data started printing again. The issue was that the bluetooth module could only communicate with the baud rate of 9600, which was much lower than what I previously increased it to. </p>
@@ -102,7 +149,7 @@ TimeTook = millis()-beginTime;
 
 ![HC05](HC-05-Bluetooth-Module-Pinout.png)
 
-<p><i>Figure 7; <a href="https://components101.com/wireless/hc-05-bluetooth-module">Components 101, HC-05 - Bluetooth Module</a> -  This image shows where the wires go on the HC05</i></p>
+<p><i>Figure 11; <a href="https://components101.com/wireless/hc-05-bluetooth-module">Components 101, HC-05 - Bluetooth Module</a> -  This image shows where the wires go on the HC05</i></p>
 
 <p>After I attached the bluetooth module, all my components were attached and working. This meant I could solder everything so it was permanently connected. I got a new proto board, and began adding the components and soldering it from underneath it. The proto-board helped reduce the overall size of the project, making it more functional. Aside from a few minor mistakes, I got all the wires and components soldered onto the proto board, and now I just needed to test if everything still worked. The type of wire I chose to use for this was solid-core wire, and I made this choice because it would be easier to solder onto the proto board, and the higher degree of flexibility stranded-core wire offered was not required. One thing I learned to do while wiring was labeling my wire. This would save a lot of time in the future over confusion over which wire goes where.</p>
 
@@ -114,7 +161,7 @@ TimeTook = millis()-beginTime;
 
 ![SewingHolesProto](image0.png)
 
-<p>Figure 8; The circled holes are where I sewed the arduino down</p>
+<p>Figure 12; The circled holes are where I sewed the arduino down</p>
 
 <p>Then, the problem of how I would attach the flex sensor to the knee sleeve. The problem was that the knee sleeve stretched a lot when it was worn, so if I just put the flex sensor on the sleeve there was a risk of it breaking while the knee sleeve wanted to stretch. To combat this risk, I utilized a strip of neoprene fabric and put it over the sensor, sort of forming a tube for the sensor to fit in. This solved my issue because it let the flex sensor slide around as much as it wanted to, but it also held it down tight enough so I could measure its bend.</p>
 
@@ -132,13 +179,13 @@ that called for a 47k resistor, and a 50k resistor was the closest round number 
  
 ![HowItWorksStraight](how-it-works-straight.png)
 ![HowItWorksBent](how-it-works-bent.png)
-<p></p><i>Figure 9; <a href="https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all">Spark Fun, Flex Sensor Hookup Guide</a> - This graphic describes how a flex sensor has more resistance when it is bent.</i>
+<p></p><i>Figure 13; <a href="https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all">Spark Fun, Flex Sensor Hookup Guide</a> - This graphic describes how a flex sensor has more resistance when it is bent.</i>
 
 <p></p>The flex sensor is essentially a variable resistor. The problem is that an Arduino reads voltage. We can fix that by putting the flex sensor in a voltage divider circuit,then use the resistance that the flex sensor gives, use Ohm's law and find the voltage of it, which is something the Arduino can actually read. For example, if we take the formula V<sub>out</sub> = V<sub>in</sub> &times; ( R<sub>2</sub> / ( R<sub>1</sub> + R<sub>2</sub> ) ), and say the flex sensor is R<sub>2</sub>, if the resistance of it increases so does the V<sub>out</sub>. Therefore, if the flex sensor bends more and the resistance increases, so does the voltage out which the arduino reads.
 
 <img src="itemeditorimage_6368822ab7fb6.png" width="300" height="300">
 
-<i><p>Figure 10; <a href="https://resources.pcb.cadence.com/blog/voltage-dividers-operations-and-functions">Voltage Dividers: Operations and Functions</a> - This is a voltage divider circuit. For my project, Z2 would be the Flex sensor and Z1 would be the parallel resistors I talked about earlier.</i></p>
+<i><p>Figure 14; <a href="https://resources.pcb.cadence.com/blog/voltage-dividers-operations-and-functions">Voltage Dividers: Operations and Functions</a> - This is a voltage divider circuit. For my project, Z2 would be the Flex sensor and Z1 would be the parallel resistors I talked about earlier.</i></p>
 
 <p></p>This can be interpreted into the degrees the sensor is bending with some code. In the code, the flex sensor gives a value of 0 - 1023, then it is normalized. I calibrated the resistance for 0 degrees and 90 degrees, with STRAIGHT_RESISTANCE (0 degrees) being 13304.4 ohms and BEND_RESISTANCE (90 degrees) being 31319.56 using the map() function in the Arduino IDE. The function extrapolates the degree value to a different bend. Also, the flex sensor also can only be plugged into analog instead of digital because it has multiple values. When the sensor bends past 110 degrees, the buzzer goes off, which is the most your knees should bend when squatting.
 
@@ -146,22 +193,22 @@ that called for a 47k resistor, and a 50k resistor was the closest round number 
 
 ![HowItWorksAccelerometer](Accelerometers-04-fullsize.png)
 
-<p><i>Figure 11; <a href="https://insights.globalspec.com/article/1263/specifying-an-accelerometer-function-and-applications">GlobalSpec, Specifying an Accelerometer: Function and Applications</a> -  This is how a accelerometer works.</i></p>
+<p><i>Figure 15; <a href="https://insights.globalspec.com/article/1263/specifying-an-accelerometer-function-and-applications">GlobalSpec, Specifying an Accelerometer: Function and Applications</a> -  This is how a accelerometer works.</i></p>
 
 <p></p>Some challenges I had were that I had to learn about parallel resistors to solve my resistor issue. This concept took me two days to grasp, but once I learned it it made my understanding of the circuit much better. I also had to learn how to get data from an accelerometer. I had no idea how to code this, but I was able to find some code online which made adding to my code much easier.
 Up next is my second milestone. I plan on attaching the bluetooth module, so I can track the data from the accelerometer and flex sensor much easier.
 
 # Schematics 
 
-<p><i>Figure 12</i>; Milestone 1 Schematic - </p>
+<p><i>Figure 16</i>; Milestone 1 Schematic - </p>
 
 <img src="MainProjM1.png" width="500">
 
-<p><i>Figure 13</i>; Milestone 2 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) - </p> 
+<p><i>Figure 17</i>; Milestone 2 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) - </p> 
 
 <img src="milestone2.png" width="500">
 
-<p><i>Figure 14</i>; Milestone 3 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) - </p>
+<p><i>Figure 18</i>; Milestone 3 Schematic (Breadboard is supposed to be proto board, simply solder components onto proto board how breadboard is wired) - </p>
 
 <img src="mainproj3.png" width="500">
 
