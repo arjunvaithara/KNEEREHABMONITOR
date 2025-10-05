@@ -21,7 +21,7 @@ You should comment out all portions of your portfolio that you have not complete
 
 # Modification
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Vbn4I2UtOLk?si=Q1i0YKJm0Ya4K-V0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 <p>My addition to the Knee Rehabilitation monitor is an external knee brace that adds hinges onto the main project, and a Servo that pulls my leg in with a switch.</p>
 
@@ -84,7 +84,6 @@ You should comment out all portions of your portfolio that you have not complete
 
 <!---**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**-->
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/x8ZHpPgjGdM?si=cjnFPUpM2n6mxZ55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <!---For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
@@ -142,7 +141,6 @@ TimeTook = millis()-beginTime;
 
 # Second Milestone
 
-<iframe width="745" height="419" src="https://www.youtube.com/embed/CIAtUQvTl04" title="Arjun V.  Second Milestone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <p>My second milestone was to add bluetooth to my Arduino, so it could display data on the serial monitor without having to be connected, adding a powerbank to power the whole thing, and then soldering it and attaching it to my knee sleeve.</p>
 
@@ -177,7 +175,7 @@ TimeTook = millis()-beginTime;
 
 # First Milestone
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Q6NsCcsk8Xg?si=JDRZV4ocUAxqacnu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 <p>My first milestone was to detect position using a flex sensor and accelerometer. My first step was to create a circuit with a flex sensor and two resistors. First, I looked at a 
 <a href="https://learn.sparkfun.com/tutorials/flex-sensor-hookup-guide/all">schematic</a>
@@ -521,7 +519,6 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 # Starter Project
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Xf_h2ZlMCag?si=Pgq-o5lSrfOtKBD6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <p></p>My starter project is a microcontroller-based Arduino project. It buzzes when I press a button and an LED goes off when it detects motion.    
 <p></p>There are 5 main components in this project. The parts consist of the Arduino itself, a button, a piezo buzzer, a green LED and a PIR motion sensor. The first input and output is the button and the piezo buzzer. The piezo buzzer works by applying voltage to a piezoelectric ceramic material. The voltage causes the material to deform and vibrate, making sound waves.
